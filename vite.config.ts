@@ -4,6 +4,7 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
+  base: '/kir4che-portfolio/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
