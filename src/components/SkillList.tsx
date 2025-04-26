@@ -37,7 +37,7 @@ const SkillList: React.FC = () => {
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger className="flex flex-col items-center gap-1.5 px-4">
-                        <Icon src={`/icons/${key}.svg`} alt={skill.name} />
+                        <Icon src={`icons/${key}.svg`} alt={skill.name} />
                         <span className="xs:block hidden text-center text-sm">
                           {skill.name}
                         </span>
@@ -57,7 +57,7 @@ const SkillList: React.FC = () => {
             );
           })}
           <img
-            src="/images/beaver.webp"
+            src="images/beaver.webp"
             alt="Beaver illustration"
             className="absolute -bottom-3 z-50 hidden max-h-40 max-w-40 rotate-3 sm:block lg:-left-16"
           />

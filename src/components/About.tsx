@@ -33,7 +33,7 @@ const About: React.FC = () => {
         </div>
         <div className="order-1 mx-auto md:order-none">
           <img
-            src="/images/molly.webp"
+            src="images/molly.webp"
             alt="Portrait of Molly"
             className="w-80 transform rounded-md transition duration-300 hover:scale-105 hover:rotate-3 md:w-full"
           />

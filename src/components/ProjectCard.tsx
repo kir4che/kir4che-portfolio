@@ -35,7 +35,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       <div className="flex max-w-screen-xl flex-col gap-x-4 px-8 lg:flex-row lg:gap-x-8">
         <div className="space-y-3 lg:max-w-xl">
           <img
-            src={`/images/${project}.webp`}
+            src={`images/${project}.webp`}
             alt={project}
             className="w-full rounded-md shadow"
           />

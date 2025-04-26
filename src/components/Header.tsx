@@ -50,7 +50,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-start lg:w-1/3">
           <a href="/" className="flex items-center">
             <img
-              src="/images/logo.webp"
+              src="images/logo.webp"
               alt="kir4che logo"
               width={32}
               height={32}

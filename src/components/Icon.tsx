@@ -13,7 +13,7 @@ const Icon: React.FC<IconProps> = ({ src, alt }) => {
       src={imgSrc}
       alt={alt}
       className="xs:h-12 xs:w-12 h-9 w-9"
-      onError={() => setImgSrc("/icons/no-image.svg")}
+      onError={() => setImgSrc("icons/no-image.svg")}
       tabIndex={0}
       aria-describedby={`${alt}-tooltip`}
     />

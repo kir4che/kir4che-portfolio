@@ -51,7 +51,7 @@ const Experience: React.FC = () => {
             <AccordionContent className="border-x-2 border-b-2 border-pink-500 p-4">
               <div className="mb-3 flex items-center gap-x-2">
                 <img
-                  src={`/images/${key}.webp`}
+                  src={`images/${key}.webp`}
                   alt={key}
                   className="h-auto w-12"
                 />
