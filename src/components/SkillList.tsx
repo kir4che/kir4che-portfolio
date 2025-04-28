@@ -18,7 +18,7 @@ const SkillList: React.FC = () => {
 
   return (
     <div id="skill" className="mx-auto pt-6">
-      <Title text={t("skill.title")} />
+      <Title text={t("skill.title")} className="mb-4" />
       <p className="mb-2 text-center">{t("skill.subtitle")}</p>
       <p className="text-text-zinc-light mb-5 text-center text-xs">
         {t("skill.tip")}
