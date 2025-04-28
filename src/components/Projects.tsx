@@ -5,7 +5,8 @@ import Title from "@/components/Title";
 
 const Projects: React.FC = () => {
   const { t } = useTranslation();
-  const projects = ["stocklight", "mernEcWebsite"] as const;
+
+  const projectsList = t("projects.projectsList", { returnObjects: true });
 
   return (
     <section
@@ -14,7 +15,7 @@ const Projects: React.FC = () => {
     >
       <Title className="mb-8" text={t("projects.title")} />
       <div className="mx-auto w-fit space-y-20">
-        {projects.map((project) => (
+        {Object.keys(projectsList).map((project) => (
           <ProjectCard key={project} project={project} />
         ))}
       </div>
