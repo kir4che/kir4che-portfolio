@@ -7,12 +7,6 @@ interface ProjectCardProps {
   project: string;
 }
 
-interface TitleBlockProps {
-  subtitle: string;
-  title: string;
-  className?: string;
-}
-
 type ProjectData = {
   subtitle: string;
   title: string;
@@ -21,17 +15,6 @@ type ProjectData = {
   features: Record<string, string>;
   [key: string]: string | Record<string, string> | undefined;
 };
-
-const TitleBlock: React.FC<TitleBlockProps> = ({
-  subtitle,
-  title,
-  className,
-}) => (
-  <div className={cn("mb-4", className)}>
-    <p className="text-sm text-pink-700">{subtitle}</p>
-    <h3 className="text-1.5xl/10 font-medium">{title}</h3>
-  </div>
-);
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const { t } = useTranslation();
@@ -45,79 +28,70 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   >;
 
   return (
-    <section key={project}>
-      <TitleBlock
-        subtitle={projectData.subtitle}
-        title={projectData.title}
-        className="px-8 lg:hidden"
+    <section
+      className="space-y-2 md:max-w-lg lg:max-w-xl 2xl:max-w-2xl"
+      key={project}
+    >
+      <div>
+        <p className="text-xs text-pink-800/75">{projectData.subtitle}</p>
+        <h3 className="text-1.5xl/10 font-medium">{projectData.title}</h3>
+      </div>
+      <img
+        src={`images/projects/${project}.webp`}
+        alt={project}
+        className="w-full rounded-md shadow"
       />
-      <div className="flex max-w-screen-xl flex-col gap-x-4 px-8 lg:flex-row lg:gap-x-8">
-        <div className="space-y-3 lg:max-w-xl">
-          <img
-            src={`images/projects/${project}.webp`}
-            alt={project}
-            className="w-full rounded-md shadow"
-          />
-          <ul className="flex flex-wrap gap-x-3">
-            {Object.entries(projectData.techStack).map(([key, item]) => (
-              <li key={key} className="text-sm/6 text-pink-600">
-                #{item}
-              </li>
-            ))}
-          </ul>
-        </div>
-        {/* 作品介紹 */}
-        <div>
-          <TitleBlock
-            subtitle={projectData.subtitle}
-            title={projectData.title}
-            className="hidden lg:block"
-          />
-          <div className="mt-4 space-y-3">
-            <Paragraphs text={projectData.description} />
-            <ul className="list-disc space-y-1 pl-5 leading-8 marker:text-pink-800">
-              {Object.entries(projectData.features).map(([key, feature]) => (
-                <li key={key}>{feature}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="mt-8 flex justify-end gap-2.5">
-            {Object.keys(linkLabels).map((linkKey) => {
-              const link = projectData[linkKey];
-              if (typeof link !== "string") return null;
+      <ul className="flex flex-wrap gap-x-3">
+        {Object.entries(projectData.techStack).map(([key, item]) => (
+          <li key={key} className="text-sm/6 text-pink-500">
+            #{item}
+          </li>
+        ))}
+      </ul>
+      {/* 作品介紹 */}
+      <div className="space-y-3">
+        <Paragraphs text={projectData.description} />
+        <ul className="list-disc space-y-1 pl-5 leading-8 marker:text-pink-800">
+          {Object.entries(projectData.features).map(([key, feature]) => (
+            <li key={key}>{feature}</li>
+          ))}
+        </ul>
+      </div>
+      <div className="mt-6 flex justify-end gap-2.5">
+        {Object.keys(linkLabels).map((linkKey) => {
+          const link = projectData[linkKey];
+          if (typeof link !== "string") return null;
 
-              const isWebsite = linkKey === "website";
-              const extraNote =
-                project === "stocklight"
-                  ? isWebsite
-                    ? " (已無維護)"
-                    : linkKey === "github"
-                      ? " (FE)"
-                      : ""
-                  : "";
+          const isWebsite = linkKey === "website";
+          const extraNote =
+            project === "stocklight"
+              ? isWebsite
+                ? " (已無維護)"
+                : linkKey === "github"
+                  ? " (FE)"
+                  : ""
+              : "";
 
-              return (
-                <a
-                  key={linkKey}
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cn(
-                    "w-fit rounded-md px-4 py-2 text-sm hover:no-underline",
-                    isWebsite
-                      ? "bg-pink-700 text-white"
-                      : "border border-pink-700 bg-white text-pink-700",
-                  )}
-                >
-                  <span>{linkLabels[linkKey]}</span>
-                  {extraNote && (
-                    <span className="text-xs opacity-85">{extraNote}</span>
-                  )}
-                </a>
-              );
-            })}
-          </div>
-        </div>
+          return (
+            <a
+              key={linkKey}
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                "w-fit rounded-md px-4 py-2 text-sm hover:no-underline",
+                isWebsite
+                  ? "bg-pink-700 text-white"
+                  : "border border-pink-700 bg-white text-pink-700",
+              )}
+            >
+              <span>{linkLabels[linkKey]}</span>
+              {extraNote && (
+                <span className="text-xs opacity-85">{extraNote}</span>
+              )}
+            </a>
+          );
+        })}
       </div>
     </section>
   );

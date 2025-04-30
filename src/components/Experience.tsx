@@ -31,7 +31,7 @@ const Experience: React.FC = () => {
   return (
     <section
       id="experience"
-      className="xs:px-8 mx-auto max-w-screen-md px-4 py-4 md:py-12 lg:px-0"
+      className="mx-auto max-w-screen-md px-5 py-4 sm:px-8 md:py-12 lg:px-0"
     >
       <Title text={t("experience.title")} />
       <Accordion

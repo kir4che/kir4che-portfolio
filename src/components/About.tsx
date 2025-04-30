@@ -11,7 +11,7 @@ const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative mx-auto max-w-screen-md px-8 pt-16 pb-12 lg:px-0"
+      className="relative mx-auto max-w-screen-md px-5 pt-16 pb-12 sm:px-8 lg:px-0"
     >
       <Title className="md:mx-0" text={t("about.title")} />
       <div className="flex flex-col justify-between gap-8 md:flex-row">
