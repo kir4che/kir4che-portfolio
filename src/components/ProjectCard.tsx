@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 
 import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
 import Paragraphs from "@/components/Paragraphs";
 
 interface ProjectCardProps {
@@ -10,6 +11,8 @@ interface ProjectCardProps {
 type ProjectData = {
   subtitle: string;
   title: string;
+  state: string;
+  maintain: string;
   description: string;
   techStack: Record<string, string>;
   features: Record<string, string>;
@@ -29,12 +32,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
   return (
     <section
-      className="space-y-2 md:max-w-lg lg:max-w-xl 2xl:max-w-2xl"
       key={project}
+      className="space-y-1.5 md:max-w-lg lg:max-w-xl 2xl:max-w-2xl"
     >
       <div>
-        <p className="text-xs text-pink-800/75">{projectData.subtitle}</p>
-        <h3 className="text-1.5xl/10 font-medium">{projectData.title}</h3>
+        <p className="text-xs text-pink-500">{projectData.subtitle}</p>
+        <div className="flex items-center justify-between">
+          <h3 className="text-1.5xl/9 font-medium">{projectData.title}</h3>
+          {projectData.state && (
+            <Badge className="rounded-full bg-red-100/30 font-normal text-red-700/60">
+              {t(`projects.state.${projectData.state}`)}
+              {projectData.maintain &&
+                ` (${t(`projects.maintain.${projectData.maintain}`)})`}
+            </Badge>
+          )}
+        </div>
       </div>
       <img
         src={`images/projects/${project}.webp`}
@@ -62,16 +74,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           const link = projectData[linkKey];
           if (typeof link !== "string") return null;
 
-          const isWebsite = linkKey === "website";
-          const extraNote =
-            project === "stocklight"
-              ? isWebsite
-                ? " (已無維護)"
-                : linkKey === "github"
-                  ? " (FE)"
-                  : ""
-              : "";
-
           return (
             <a
               key={linkKey}
@@ -80,15 +82,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               rel="noopener noreferrer"
               className={cn(
                 "w-fit rounded-md px-4 py-2 text-sm hover:no-underline",
-                isWebsite
+                linkKey === "website"
                   ? "bg-pink-700 text-white"
                   : "border border-pink-700 bg-white text-pink-700",
               )}
             >
               <span>{linkLabels[linkKey]}</span>
-              {extraNote && (
-                <span className="text-xs opacity-85">{extraNote}</span>
-              )}
+              <span className="text-xs opacity-85">
+                {project === "stocklight" && linkKey === "code" && " (FE)"}
+              </span>
             </a>
           );
         })}
