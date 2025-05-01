@@ -87,8 +87,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       )}
       <ul className="flex flex-wrap gap-x-3">
         {Object.entries(projectData.techStack).map(([key, item]) => (
-          <li key={key} className="text-sm/6 text-pink-500">
-            #{item}
+          <li key={key} className="text-sm/5.5 text-pink-700/80">
+            ＃{item}
           </li>
         ))}
       </ul>
