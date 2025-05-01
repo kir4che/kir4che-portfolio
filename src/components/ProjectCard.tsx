@@ -1,7 +1,9 @@
 import { useTranslation } from "react-i18next";
+import { Play } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import Paragraphs from "@/components/Paragraphs";
 
 interface ProjectCardProps {
@@ -48,11 +50,41 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           )}
         </div>
       </div>
-      <img
-        src={`images/projects/${project}.webp`}
-        alt={project}
-        className="w-full rounded-md shadow"
-      />
+      {projectData.hasVideo ? (
+        <Dialog>
+          <DialogTrigger asChild>
+            <div className="relative cursor-pointer transition-transform duration-300 hover:scale-[102%]">
+              <img
+                src={`images/projects/${project}.webp`}
+                alt={project}
+                className="w-full rounded-md shadow"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 flex cursor-pointer items-center justify-center rounded-md bg-pink-950/10 transition-opacity duration-300">
+                <Play
+                  fill="currentColor"
+                  className="h-14 w-14 rounded-full bg-white/85 p-4 text-pink-500 shadow"
+                />
+              </div>
+            </div>
+          </DialogTrigger>
+          <DialogContent className="aspect-video w-full min-w-full border-none p-0 md:max-w-4xl md:min-w-auto lg:max-w-5xl xl:max-w-6xl [&>button]:hidden">
+            <video
+              preload="auto"
+              controls
+              className="h-full w-full focus:outline-none md:rounded-xl"
+            >
+              <source src={`videos/projects/${project}.mp4`} type="video/mp4" />
+            </video>
+          </DialogContent>
+        </Dialog>
+      ) : (
+        <img
+          src={`images/projects/${project}.webp`}
+          alt={project}
+          className="w-full rounded-md shadow"
+        />
+      )}
       <ul className="flex flex-wrap gap-x-3">
         {Object.entries(projectData.techStack).map(([key, item]) => (
           <li key={key} className="text-sm/6 text-pink-500">
