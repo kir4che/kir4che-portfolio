@@ -19,12 +19,12 @@ const SkillList: React.FC = () => {
   return (
     <div id="skill" className="mx-auto pt-6">
       <Title text={t("skill.title")} className="mb-4" />
-      <p className="mb-2 text-center">{t("skill.subtitle")}</p>
+      <p className="mb-2 text-center text-zinc-900">{t("skill.subtitle")}</p>
       <p className="mb-5 text-center text-xs text-zinc-900/50">
         {t("skill.tip")}
       </p>
       <div className="xs:ounded-lg bg-pink-200 py-5">
-        <div className="relative mx-auto max-w-screen-md space-y-4 bg-white pt-8 pb-2 sm:space-y-6 md:rounded-xl">
+        <div className="relative mx-auto max-w-screen-md space-y-4 bg-white px-2 pt-8 pb-2 sm:space-y-6 sm:px-0 md:rounded-xl">
           {categories.map((cat) => {
             const skills = t(`skill.${cat}`, { returnObjects: true });
 
@@ -36,9 +36,9 @@ const SkillList: React.FC = () => {
                 {Object.entries(skills).map(([key, skill]) => (
                   <TooltipProvider key={key}>
                     <Tooltip>
-                      <TooltipTrigger className="flex flex-col items-center gap-1.5 px-4">
+                      <TooltipTrigger className="xs:px-4 flex flex-col items-center gap-1.5">
                         <Icon src={`icons/${key}.svg`} alt={skill.name} />
-                        <span className="xs:block hidden text-center text-sm">
+                        <span className="text-center text-sm text-zinc-900">
                           {skill.name}
                         </span>
                       </TooltipTrigger>

@@ -9,7 +9,7 @@ interface ParagraphsProps {
 
 const Paragraphs: React.FC<ParagraphsProps> = ({ text, className }) =>
   text.split("\n").map((line, index) => (
-    <p key={index} className={cn("text-base/8", className)}>
+    <p key={index} className={cn("text-base/8 text-zinc-900", className)}>
       {line}
     </p>
   ));

@@ -10,7 +10,7 @@ import Contact from "@/components/Contact";
 const App = () => (
   <>
     <Header />
-    <main>
+    <main className="bg-white">
       <Banner />
       <About />
       <Experience />

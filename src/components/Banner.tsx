@@ -24,10 +24,10 @@ const Banner: React.FC = () => {
         </p>
         <div className="w-fit">
           <Link
-            to="mailto:mollydcxxiil@gmail.com"
-            className="text-1.5xl relative z-10 font-medium tracking-wide"
+            to="mailto:mollydcxxiii@gmail.com"
+            className="text-1.5xl relative z-10 font-medium tracking-wide !text-zinc-800"
           >
-            mollydcxxiil@gmail.com
+            mollydcxxiii@gmail.com
           </Link>
           <hr className="relative bottom-2 w-full border-4 border-pink-300" />
         </div>

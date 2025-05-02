@@ -48,7 +48,7 @@ const Header: React.FC = () => {
   const navList = t("nav", { returnObjects: true });
 
   return (
-    <header className="sticky top-0 z-50 bg-white px-4 py-2.5 shadow shadow-pink-100 lg:px-6">
+    <header className="sticky top-0 z-50 bg-white px-4 py-2.5 text-zinc-900 shadow shadow-pink-100 lg:px-6">
       <div className="flex w-full items-center gap-x-3 lg:justify-between lg:gap-x-0">
         <div className="flex items-center justify-start lg:w-1/3">
           <Link to={langPrefix} className="flex items-center">

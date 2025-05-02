@@ -16,7 +16,7 @@ const Contact: React.FC = () => {
         href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=mollydcxxiii@gmail.com"
         target="_blank"
         rel="noopener noreferrer"
-        className="group xs:w-56 relative mx-auto block overflow-hidden rounded-full border-2 border-pink-600 bg-white py-3 text-center font-medium tracking-widest text-pink-600"
+        className="group xs:w-56 relative mx-auto block overflow-hidden rounded-full border-2 border-pink-600 bg-white py-3 text-center font-medium tracking-widest !text-pink-600"
         aria-label="Contact me"
         aria-describedby="contact"
       >

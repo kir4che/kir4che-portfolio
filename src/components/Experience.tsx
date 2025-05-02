@@ -60,22 +60,22 @@ const Experience: React.FC = () => {
                     href={t(`${key}.link`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="xs:w-fit inline-flex items-center justify-end gap-x-1 hover:text-pink-700"
+                    className="xs:w-fit inline-flex items-center justify-end gap-x-1 !text-pink-800 hover:text-pink-700"
                   >
                     <span className="font-semibold">
                       {t(`experience.${key}.title`)}
                     </span>
                     <SquareArrowOutUpRight className="-mb-0.5 h-3.5 w-3.5" />
                   </a>
-                  <div className="flex w-full items-center gap-x-1 font-normal text-zinc-400">
+                  <div className="flex w-full items-center gap-x-1 font-normal text-zinc-500">
                     <MapPin className="h-3.5 w-3.5" />
-                    <p className="text-xs text-nowrap">
+                    <p className="text-xs text-nowrap text-zinc-500">
                       {t(`experience.${key}.location`)}
                     </p>
                   </div>
                 </div>
               </div>
-              <ul className="list-disc pl-5 text-base leading-[1.85] marker:text-pink-800">
+              <ul className="list-disc pl-5 text-base leading-[1.85] text-zinc-900 marker:text-pink-800">
                 {contents[key] && typeof contents[key] === "object"
                   ? Object.entries(
                       contents[key] as Record<string, unknown>,
@@ -107,7 +107,7 @@ const Experience: React.FC = () => {
                       (skill, index) => (
                         <li
                           key={index}
-                          className="rounded-full bg-pink-200/80 px-3 py-1 text-xs"
+                          className="rounded-full bg-pink-200/80 px-3 py-1 text-xs text-zinc-900"
                         >
                           {skill}
                         </li>

@@ -95,7 +95,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       {/* 作品介紹 */}
       <div className="space-y-3">
         <Paragraphs text={projectData.description} />
-        <ul className="list-disc space-y-1 pl-5 leading-8 marker:text-pink-800">
+        <ul className="list-disc space-y-1 pl-5 leading-8 text-zinc-900 marker:text-pink-800">
           {Object.entries(projectData.features).map(([key, feature]) => (
             <li key={key}>{feature}</li>
           ))}
@@ -115,8 +115,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               className={cn(
                 "w-fit rounded-md px-4 py-2 text-sm hover:no-underline",
                 linkKey === "website"
-                  ? "bg-pink-700 text-white"
-                  : "border border-pink-700 bg-white text-pink-700",
+                  ? "bg-pink-700 !text-white"
+                  : "border border-pink-700 bg-white !text-pink-700",
               )}
             >
               <span>{linkLabels[linkKey]}</span>

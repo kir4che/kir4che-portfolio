@@ -38,6 +38,15 @@
   }
 
   body {
-    @apply font-noto-tc bg-white text-base/7 tracking-wide text-zinc-900;
+    @apply font-noto-tc text-base/7 tracking-wide text-zinc-900;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-zinc-900;
   }
 }

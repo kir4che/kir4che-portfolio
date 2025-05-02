@@ -23,7 +23,7 @@ const About: React.FC = () => {
               {Object.values(hobbies).map((hobby, index) => (
                 <li
                   key={index}
-                  className="rounded-full bg-pink-200/80 px-3 py-1.5 text-xs"
+                  className="rounded-full bg-pink-200/80 px-3 py-1.5 text-xs text-zinc-900"
                 >
                   {hobby}
                 </li>
