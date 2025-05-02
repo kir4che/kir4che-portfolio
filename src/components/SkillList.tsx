@@ -20,7 +20,7 @@ const SkillList: React.FC = () => {
     <div id="skill" className="mx-auto pt-6">
       <Title text={t("skill.title")} className="mb-4" />
       <p className="mb-2 text-center">{t("skill.subtitle")}</p>
-      <p className="text-text-zinc-light mb-5 text-center text-xs">
+      <p className="mb-5 text-center text-xs text-zinc-900/50">
         {t("skill.tip")}
       </p>
       <div className="xs:ounded-lg bg-pink-200 py-5">
@@ -34,7 +34,7 @@ const SkillList: React.FC = () => {
                 className="xs:gap-x-0 flex flex-wrap items-center justify-center gap-x-6 gap-y-4"
               >
                 {Object.entries(skills).map(([key, skill]) => (
-                  <TooltipProvider>
+                  <TooltipProvider key={key}>
                     <Tooltip>
                       <TooltipTrigger className="flex flex-col items-center gap-1.5 px-4">
                         <Icon src={`icons/${key}.svg`} alt={skill.name} />
@@ -59,7 +59,7 @@ const SkillList: React.FC = () => {
           <img
             src="images/beaver.webp"
             alt="Beaver illustration"
-            className="absolute -bottom-3 z-50 hidden max-h-40 max-w-40 rotate-3 sm:block lg:-left-16"
+            className="absolute -bottom-3 z-30 hidden max-h-40 max-w-40 rotate-3 sm:block lg:-left-16"
           />
         </div>
       </div>
