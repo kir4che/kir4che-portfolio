@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 
 const LANGUAGES = ["tw", "en"] as const;
@@ -6,6 +7,9 @@ type Language = (typeof LANGUAGES)[number];
 
 const LangMenu: React.FC = () => {
   const { i18n } = useTranslation();
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const [lang, setLang] = useState<Language>("tw");
 
   const changeLang = (newLang: Language) => {
@@ -14,26 +18,20 @@ const LangMenu: React.FC = () => {
       setLang(newLang);
     }
 
-    const pathSegments = window.location.pathname.split("/").filter(Boolean);
+    const pathSegments = location.pathname.split("/").filter(Boolean);
+    pathSegments[0] = newLang;
 
-    if (LANGUAGES.includes(pathSegments[0] as Language))
-      pathSegments[0] = newLang;
-    else pathSegments.unshift(newLang);
-
-    const newPath =
-      "/" +
-      pathSegments.join("/") +
-      window.location.search +
-      window.location.hash;
-    window.location.replace(newPath);
+    navigate(`/${pathSegments.join("/")}${location.hash}`, {
+      replace: true,
+    });
   };
 
   useEffect(() => {
-    const pathLang = window.location.pathname.split("/")[1] as Language;
-    const currentLang = LANGUAGES.includes(pathLang) ? pathLang : "tw";
-    i18n.changeLanguage(currentLang);
-    setLang(currentLang);
-  }, [i18n]);
+    const pathLang = location.pathname.split("/")[1] as Language;
+    const curLang = LANGUAGES.includes(pathLang) ? pathLang : "tw";
+    i18n.changeLanguage(curLang);
+    setLang(curLang);
+  }, [location.pathname, i18n]);
 
   return (
     <div className="flex items-center">

@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router";
 
 const Banner: React.FC = () => {
   const { t } = useTranslation();
@@ -12,22 +13,22 @@ const Banner: React.FC = () => {
         className="hidden w-64 md:block lg:w-72"
       />
       <div className="flex flex-col items-center text-center md:items-start md:text-left">
-        <span className="mb-2.5 inline-block w-fit rounded-full rounded-bl-none bg-pink-500 px-3 py-1 text-sm text-white">
+        <span className="mb-2 inline-block w-fit rounded-full rounded-bl-none bg-pink-500 px-3 py-1 text-sm text-white">
           {t("banner.heading")}
         </span>
-        <h1 className="font-rubik-doodle mb-6 text-6xl font-bold">
+        <h1 className="font-rubik-doodle mb-5 text-6xl font-bold">
           {t("banner.name")}
         </h1>
-        <p className="mb-10 text-sm/8 text-zinc-600">
+        <p className="mb-10 text-sm/7 text-zinc-600">
           {t("banner.description")}
         </p>
         <div className="w-fit">
-          <a
-            href="mailto:mollydcxxiil@gmail.com"
-            className="relative z-10 text-xl font-medium tracking-wide hover:no-underline"
+          <Link
+            to="mailto:mollydcxxiil@gmail.com"
+            className="text-1.5xl relative z-10 font-medium tracking-wide"
           >
             mollydcxxiil@gmail.com
-          </a>
+          </Link>
           <hr className="relative bottom-2 w-full border-4 border-pink-300" />
         </div>
       </div>
