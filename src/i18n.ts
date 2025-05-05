@@ -30,7 +30,7 @@ i18n.use(initReactI18next).init({
           title: "About Me",
           mbti: "ISTJ",
           description: `I'm Molly Su. I graduated with a bachelor's degree in information and financial management from National Taipei University of Technology.
-      In high school, I discovered my passion for programming through Visual Basic. During university, I began learning front-end development and was captivated by how quickly ideas could be turned into visual results. Since then, I’ve been deeply interested in front-end development and am committed to continually improving my skills and striving to become an outstanding front-end engineer.`,
+      In high school, I discovered my passion for programming through Visual Basic. During university, I began learning front-end development and was captivated by how quickly ideas could be turned into visual results. Since then, I've been deeply interested in front-end development and am committed to continually improving my skills and striving to become an outstanding front-end engineer.`,
           hobby: {
             title: "Hobbies:",
             content: [
@@ -109,59 +109,113 @@ i18n.use(initReactI18next).init({
             demoVideo: "Demo Video",
             code: "Code",
           },
-          mernEcWebsite: {
-            title: "E-commerce Website 🛒",
-            subtitle: "MERN Stack Project",
-            state: "completed",
-            maintain: "y",
-            techStack: [
-              "React",
-              "TypeScript",
-              "Tailwind CSS + Headless UI",
-              "Framer Motion",
-              "Express",
-              "MongoDB",
-            ],
-            description:
-              "A full-stack e-commerce site. The frontend allows users to browse products and place orders (no payment integration yet), with order history visible in the profile. The admin backend lets administrators manage products, messages, orders, and view all customer activity.",
-            features: [],
-            website: "https://mern-ecommerce-client-seven.vercel.app/",
-            code: "https://github.com/kir4che/mern-ecommerce-website",
-          },
-          stocklight: {
-            title: "Stock Light ✨",
-            subtitle: "Senior Project",
-            state: "live",
-            maintain: "n",
-            techStack: [
-              "Next.js",
-              "JavaScript",
-              "Tailwind CSS + MUI",
-              "ECharts",
-              "AOS",
-              "NextAuth",
-              "OpenAI API",
-            ],
-            description: `A one-stop stock information platform that uses historical data and statistical analysis, designed as a blessing-themed system. It integrates deep learning to provide users with real-time and intuitive analysis. I was mainly responsible for frontend development and partial UI/UX design, collaborating with the backend team to define API formats and handle integration.
-
-      Key features include:`,
-            features: [
-              "Fundamental and technical analysis for stocks, along with unique weather correlation analysis.",
-              "AI chatbot: God of Stock Market",
-              "Lighting system: Users select an industry and filter to find promising stocks.",
-              "Stock dashboard: Includes financial ratios, sentiment radar charts, key charts, news, and a GPT-4 chatbot using RAG.",
-              "Watchlist: Users can group and monitor favorite stocks with real-time prices and insights.",
-            ],
-            website: "https://stocklight.co/",
-            demoVideo: "https://www.youtube.com/watch?v=s92-9di9qa4",
-            code: "https://github.com/kir4che/stock-light-website",
+          projectsList: {
+            mernEcWebsite: {
+              title: "E-commerce Website 🛒",
+              subtitle: "MERN Stack Project",
+              state: "completed",
+                maintain: "n",
+                hasVideo: false,
+              techStack: [
+                "React",
+                "TypeScript",
+                "Tailwind CSS + Headless UI",
+                "Framer Motion",
+                "Express",
+                "MongoDB",
+              ],
+              description:
+                "A full-stack e-commerce site. The frontend allows users to browse products and place orders (no payment integration yet), with order history visible in the profile. The admin backend lets administrators manage products, messages, orders, and view all customer activity.",
+              features: [],
+              website: "https://mern-ecommerce-client-seven.vercel.app/",
+              code: "https://github.com/kir4che/mern-ecommerce-website",
+            },
+            kir4cheBlog: {
+              title: "Personal Blog",
+              subtitle: "Next.js Blog",
+              state: "live",
+              maintain: "y",
+              hasVideo: true,
+              techStack: [
+                "Next.js",
+                "React",
+                "TypeScript",
+                "Tailwind CSS + daisyUI",
+                "Next-Intl",
+                "next-mdx-remote + remark/rehype plugins",
+              ],
+              description:
+                "Built with Next.js and TypeScript for sharing tech articles and life updates.\nKey features and technical highlights include:",
+              features: [
+                "Supports multi-language and dark mode for better user experience.",
+                "Utilizes Static Site Generation (SSG) to improve page load speed.",
+                "Manages SEO metadata and creates dynamic OG image for optimized search visibility.",
+                "Supports MDX format, allowing React components to be embedded directly in articles for more flexible content.",
+                "Articles can be drafted or password-protected for content control and privacy.",
+              ],
+              website: "https://kir4che.com/tw",
+              code: "https://gitlab.com/kir4che/kir4che-blog",
+            },
+            stocklight: {
+              title: "Stock Light ✨",
+              subtitle: "Senior Project",
+              state: "live",
+              maintain: "n",
+                hasVideo: false,
+              techStack: [
+                "Next.js",
+                "JavaScript",
+                "Tailwind CSS + MUI",
+                "ECharts",
+                "AOS",
+                "NextAuth",
+                "OpenAI API",
+              ],
+              description: `A one-stop stock information platform that uses historical data and statistical analysis, designed as a blessing-themed system. It integrates deep learning to provide users with real-time and intuitive analysis. I was mainly responsible for frontend development and partial UI/UX design, collaborating with the backend team to define API formats and handle integration.\nKey features include:`,
+              features: [
+                "Fundamental and technical analysis for stocks, along with unique weather correlation analysis.",
+                "AI chatbot: God of Stock Market",
+                "Lighting system: Users select an industry and filter to find promising stocks.",
+                "Stock dashboard: Includes financial ratios, sentiment radar charts, key charts, news, and a GPT-4 chatbot using RAG.",
+                "Watchlist: Users can group and monitor favorite stocks with real-time prices and insights.",
+              ],
+              website: "https://stocklight.co/",
+              demoVideo: "https://www.youtube.com/watch?v=bPptTi9uR-0&t=36s",
+              code: "https://github.com/kir4che/stock-light-website",
+            },
+            picquads: {
+              title: "PicQuads 📷",
+              subtitle: "Online Photo Booth",
+              state: "live",
+              maintain: "y",
+              hasVideo: true,
+              techStack: [
+                "React",
+                "TypeScript",
+                "Tailwind CSS",
+                "react-camera-pro",
+                "file-saver",
+                "Express",
+              ],
+              description:
+                "Inspired by Korea's popular photo booths, an online web app lets users capture photos on mobile or desktop, choose from various frame layouts, customize frame colors, and apply filter effects to create a personalized photo strip.\nKey features include:",
+              features: [
+                "Supports various frame layouts such as single, double, and triple, etc.",
+                "Captures photos on mobile or desktop, adapting to various devices and scenarios.",
+                "Allows users to customize frame colors and apply various filter effects.",
+                "Supports downloading the photo strip for easy saving and printing.",
+                "Supports sharing photos via link or QR Code for easy sharing with friends or on social media (completed but not yet released).",
+              ],
+              website: "https://picquads.vercel.app/",
+              code: "https://github.com/kir4che/picquads",
+            },
           },
         },
         skill: {
           title: "Skills",
           subtitle:
             "These are the skills I have acquired so far, and I am continually working to improve them.",
-          tip: "(Hover over the icon to see my proficiency level)",
+          tip: "(Hover over or click icon to see my skill level)",
           frontend: {
             react: {
               name: "React",
@@ -367,7 +421,7 @@ i18n.use(initReactI18next).init({
               code: "https://github.com/kir4che/mern-ecommerce-website",
             },
             kir4cheBlog: {
-              title: "個人部落格",
+              title: "個人部落格 🍒",
               subtitle: "Next.js Blog",
               state: "live",
               maintain: "y",
@@ -378,10 +432,10 @@ i18n.use(initReactI18next).init({
                 "TypeScript",
                 "Tailwind CSS + daisyUI",
                 "Next-Intl",
-                "next-mdx-remote",
+                "next-mdx-remote + remark/rehype plugins"
               ],
               description:
-                "使用 Next.js 15 + TypeScript 架設的個人部落格，用於分享技術文章與生活點滴。\n\n主要功能與技術特色如下：",
+                "使用 Next.js + TypeScript 架設的個人部落格，用於分享技術文章與生活點滴。\n主要功能與技術特色如下：",
               features: [
                 "支援中英文語系切換與深色模式，提升使用者體驗。",
                 "採用靜態生成（SSG）提升網站載入速度。",
@@ -393,7 +447,7 @@ i18n.use(initReactI18next).init({
               code: "https://gitlab.com/kir4che/kir4che-blog",
             },
             stocklight: {
-              title: "股市光明燈 Stock Light ✨",
+              title: "股市光明燈 ✨",
               subtitle: "大學畢業專題",
               state: "live",
               maintain: "n",
@@ -408,7 +462,7 @@ i18n.use(initReactI18next).init({
                 "OpenAI API",
               ],
               description:
-                "運用歷史資料與統計分析，打造一站式股票資訊平台並包裝成光明燈祈福，且結合深度學習分析，給予使用者最即時最簡易的個股分析資訊報表。而我主要負責的是前端開發與部分 UI/UX 設計，以及與後端團隊討論 API 格式並協助串接。\n\n主要系統功能如下：",
+                "運用歷史資料與統計分析，打造一站式股票資訊平台並包裝成光明燈祈福，且結合深度學習分析，給予使用者最即時最簡易的個股分析資訊報表。而我主要負責的是前端開發與部分 UI/UX 設計，以及與後端團隊討論 API 格式並協助串接。\n網站主要功能如下：",
               features: [
                 "個股的基本面、技術分析，以及獨特的天氣相關性分析。",
                 "股市神明 AI 聊天機器人",
@@ -417,15 +471,41 @@ i18n.use(initReactI18next).init({
                 "自選股清單：使用者可建立群組並加入欲關注的個股，隨時追蹤個股的即時價格、變動幅度及相關分析。",
               ],
               website: "https://stocklight.co/",
-              demoVideo: "https://www.youtube.com/watch?v=s92-9di9qa4",
+              demoVideo: "https://www.youtube.com/watch?v=bPptTi9uR-0&t=36s",
               code: "https://github.com/kir4che/stock-light-website",
+            },
+            picquads: {
+              title: "PicQuads 📷",
+              subtitle: "線上拍貼機",
+              state: "live",
+              maintain: "y",
+              hasVideo: true,
+              techStack: [
+                "React",
+                "TypeScript",
+                "Tailwind CSS",
+                "react-camera-pro",
+                "file-saver",
+                "Express",
+              ],
+              description:
+                "參考韓國人生四格拍貼機所開發的線上拍貼機網站，使用者可以透過手機或電腦進行拍照，並選擇不同的相框樣式、顏色與濾鏡效果，製作一張專屬的拍貼照片。\n網站主要功能如下：",
+              features: [
+                "支援多種相框版型選擇，如單格、雙格、三格等。",
+                "可於手機或桌面裝置上拍照，適應不同使用場景與裝置需求。",
+                "提供相框配色自定義與多種濾鏡套用效果。",
+                "支援下載拍貼照片，方便保存與列印。",
+                "可透過連結或 QR Code 分享照片，輕鬆傳給朋友或分享到社群 (已完成，尚未上線)。",
+              ],
+              website: "https://picquads.vercel.app/",
+              code: "https://github.com/kir4che/picquads",
             },
           },
         },
         skill: {
           title: "專業技能",
           subtitle: "以下為我目前所學習的技能，並且持續學習中。",
-          tip: "(懸浮於圖示上可查看我於該技能的程度說明)",
+          tip: "(懸停或點擊圖示可查看我於該技能的程度說明)",
           frontend: {
             react: {
               name: "React",

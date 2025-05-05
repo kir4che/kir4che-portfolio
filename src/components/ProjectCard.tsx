@@ -71,6 +71,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           <DialogContent className="aspect-video w-full min-w-full border-none p-0 md:max-w-4xl md:min-w-auto lg:max-w-5xl xl:max-w-6xl [&>button]:hidden">
             <video
               preload="auto"
+              autoPlay
+              muted
               controls
               className="h-full w-full focus:outline-none md:rounded-xl"
             >
