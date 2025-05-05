@@ -13,7 +13,6 @@ interface ProjectCardProps {
 type ProjectData = {
   subtitle: string;
   title: string;
-  state: string;
   maintain: string;
   description: string;
   techStack: Record<string, string>;
@@ -41,11 +40,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <p className="text-xs text-pink-500">{projectData.subtitle}</p>
         <div className="flex items-center justify-between">
           <h3 className="text-1.5xl/9 font-medium">{projectData.title}</h3>
-          {projectData.state && (
+          {projectData.maintain && (
             <Badge className="rounded-full bg-red-100/30 font-normal text-red-700/60">
-              {t(`projects.state.${projectData.state}`)}
-              {projectData.maintain &&
-                ` (${t(`projects.maintain.${projectData.maintain}`)})`}
+              {t(`projects.maintain.${projectData.maintain}`)}
             </Badge>
           )}
         </div>
@@ -57,7 +54,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               <img
                 src={`images/projects/${project}.webp`}
                 alt={project}
-                className="w-full rounded-md shadow"
+                className="aspect-video w-full rounded-md shadow"
                 loading="lazy"
               />
               <div className="absolute inset-0 flex cursor-pointer items-center justify-center rounded-md bg-pink-950/10 transition-opacity duration-300">
@@ -84,7 +81,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <img
           src={`images/projects/${project}.webp`}
           alt={project}
-          className="w-full rounded-md shadow"
+          className="aspect-video w-full rounded-md shadow"
         />
       )}
       <ul className="flex flex-wrap gap-x-3">
@@ -119,10 +116,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 linkKey === "website"
                   ? "bg-pink-700 !text-white"
                   : "border border-pink-700 bg-white !text-pink-700",
+                projectData.suspended &&
+                  linkKey === "website" &&
+                  "cursor-not-allowed bg-gray-400/65",
               )}
+              onClick={(e) => {
+                if (projectData.suspended && linkKey === "website")
+                  e.preventDefault();
+              }}
             >
               <span>{linkLabels[linkKey]}</span>
               <span className="text-xs opacity-85">
+                {projectData.suspended &&
+                  linkKey === "website" &&
+                  ` (${projectData.suspended})`}
                 {project === "stocklight" && linkKey === "code" && " (FE)"}
               </span>
             </a>
