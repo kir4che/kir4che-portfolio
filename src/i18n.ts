@@ -353,11 +353,18 @@ i18n.use(initReactI18next).init({
               "協助開發 SurveyCake XM",
               {
                 "0": "調整頁面樣式",
-                "1": "學習並使用 nivo 製作圖表",
+                "1": "學習並使用 nivo 製作自定義圖表",
                 "2": "切版新頁面並串接 API",
+                "3": "各版本 (公版、企業版等) 後續維護及調整"
               },
               "學習使用 Git 協同開發並進行版控",
               "維護舊有專案",
+              {
+                "0": "了解如何埋設 GTM、GA",
+                "1": "稍微了解 PUG 基礎及 PHP",
+                "2": "熟悉各個專案的開發流程",
+                "3": "調整多語系文案"
+              }
             ],
             skills: ["React", "Git", "API", "Nivo"],
           },
@@ -450,7 +457,7 @@ i18n.use(initReactI18next).init({
               title: "股市光明燈 ✨",
               subtitle: "大學畢業專題",
               maintain: "n",
-              suspended: "暫停服務",
+              // suspended: "暫停服務",
               hasVideo: false,
               techStack: [
                 "Next.js",
