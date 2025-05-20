@@ -57,7 +57,7 @@ const Experience: React.FC = () => {
                 />
                 <div className="space-y-1.5">
                   <a
-                    href={t(`${key}.link`)}
+                    href={t(`experience.${key}.link`)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="xs:w-fit inline-flex items-center justify-end gap-x-1 !text-pink-800 hover:text-pink-700"
