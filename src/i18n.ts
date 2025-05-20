@@ -477,7 +477,7 @@ i18n.use(initReactI18next).init({
                 "個股儀表板：包含財務比率、根據文本做分析輸出的情緒分數雷達圖、重要圖表資訊、相關新聞，以及透過 GPT-4 模型和資料萃取技術 (RAG) 技術的 AI 聊天機器人。",
                 "自選股清單：使用者可建立群組並加入欲關注的個股，隨時追蹤個股的即時價格、變動幅度及相關分析。",
               ],
-              website: "https://stocklight.co/",
+              website: "https://stock-light-website.vercel.app/",
               demoVideo: "https://www.youtube.com/watch?v=s92-9di9qa4&t=1s",
               code: "https://github.com/kir4che/stock-light-website",
             },
