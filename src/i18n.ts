@@ -54,33 +54,41 @@ i18n.use(initReactI18next).init({
             content: [
               "Maintain and develop SurveyCake official website",
               {
-                0: "Implement new page「Templates」and integrate APIs.",
-                1: "Adjust page styles and multi-language content.",
-                2: "Adjust GA and GTM events.",
-                3: "Collaborate with PMs, designers and marketers to define and implement requirements.",
+                0: "Independently responsible for developing and maintaining core website features, continuously optimizing performance and user experience.",
+                1: "Implement the questionnaire template page including layout and API integration.",
+                2: "Adjusted page styles and content to ensure consistency with design specs.",
+                3: "Configured GA and GTM tracking events.",
+                4: "Collaborate with PMs, designers and marketers to define and implement requirements.",
               },
               "Fix bugs in SurveyCake backend",
               {
-                0: "Covered modules such as account management, group list and survey overview to improve user experience and system stability."
+                0: "Handled UI and feature bugs in modules such as account management, group list, and survey dashboard, enhancing system stability and user experience.",
               },
               "Assist in developing SurveyCake XM",
               {
                 0: "Implement new pages and integrate APIs.",
                 1: "Learn and use Nivo to create custom charts.",
-                2: "Adjust page styles.",
-                3: "Maintain public and enterprise versions.",
+                2: "Maintained and adjusted styling and logic for multiple product versions (public and enterprise).",
               },
-              "Learned to use Git for collaborative development and version control, and assisted in SurveyCake deployment.",
-              "Adjusted all page styles of SurveyCake WordPress blog based on Figma",
+              "Familiar with Git workflows and participated in release/version management.",
+              "Adjusted WordPress blog styling based on Figma design.",
               "Maintain legacy projects",
               {
                 0: "Adjust multi-language content.",
                 1: "Understand basic implementation of GTM and GA",
                 2: "Acquire basic knowledge of PUG and PHP",
-                3: "Familiar with project development workflows."
-                }
+                3: "Familiar with project development workflows.",
+              },
             ],
-            skills: ["React", "Redux", "TypeScript", "MUI", "Nivo", "Git", "Wordpress"],
+            skills: [
+              "React",
+              "Redux",
+              "TypeScript",
+              "MUI",
+              "Nivo",
+              "Git",
+              "Wordpress",
+            ],
           },
           mrhost: {
             title: "mrhost",
@@ -353,35 +361,43 @@ i18n.use(initReactI18next).init({
             location: "臺北市松山區（混合型）",
             link: "https://www.25sprout.com/",
             content: [
-              "維護 SurveyCake 官方網站",
+              "維護與開發 SurveyCake 官方網站",
               {
-                "0": "切版新頁面「問卷範本」並串接 API",
-                "1": "調整頁面樣式及文案",
-                "2": "調整 GA 與 GTM 事件",
-                "3": "參與會議與 PM、設計師及行銷團隊討論需求並進行協作",
+                "0": "獨立負責官網功能開發與維護，持續優化網站效能與使用體驗。",
+                "1": "開發問卷範本頁面（含切版與串接 API）",
+                "2": "調整頁面樣式及文案內容，確保與設計稿一致。",
+                "3": "設定 GA 與 GTM 追蹤事件",
+                "4": "與 PM、設計及行銷團隊密切協作，參與需求討論並提出技術建議。",
               },
               "修復 SurveyCake 企業後台功能與介面 bug",
               {
-                "0": "涵蓋帳號管理、群組清單、問卷總覽等模組，提升使用體驗與系統穩定性。",
+                "0": "處理帳號管理、群組清單、問卷總覽等模組功能與樣式問題，提升系統穩定性與整體使用者體驗。",
               },
               "協助開發 SurveyCake XM",
               {
                 "0": "切版新頁面並串接 API",
                 "1": "學習並使用 nivo 製作自定義圖表",
-                "2": "調整頁面樣式",
-                "3": "維護與調整公版、企業版等不同版本"
+                "3": "維護與調整不同版本（公版/企業版）的樣式與邏輯",
               },
-              "學習使用 Git 協同開發並進行版控，並協助執行 SurveyCake 進版。",
-              "依照 Figma 調整 SurveyCake Wordpress 部落格所有頁面樣式",
+              "熟悉 Git 協作流程，參與進版與版本管理。",
+              "依 Figma 調整 Wordpress 部落格樣式",
               "維護舊有專案",
               {
                 "0": "負責多語系文案調整",
                 "1": "了解 GTM、GA 基本埋設方式",
                 "2": "了解基礎的 PUG 與 PHP",
-                "3": "熟悉各個專案的開發流程"
-              }
+                "3": "熟悉各個專案的開發流程",
+              },
             ],
-            skills: ["React", "Redux", "TypeScript", "MUI", "Nivo", "Git", "Wordpress"],
+            skills: [
+              "React",
+              "Redux",
+              "TypeScript",
+              "MUI",
+              "Nivo",
+              "Git",
+              "Wordpress",
+            ],
           },
           mrhost: {
             title: "mrhost",
