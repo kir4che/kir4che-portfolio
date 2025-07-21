@@ -8,8 +8,8 @@ import {
 } from "@/components/ui/tooltip";
 
 import Icon from "@/components/Icon";
-import Title from "@/components/Title";
 import Paragraphs from "@/components/Paragraphs";
+import Title from "@/components/Title";
 
 const SkillList: React.FC = () => {
   const { t } = useTranslation();
@@ -46,7 +46,7 @@ const SkillList: React.FC = () => {
                         <TooltipContent>
                           <Paragraphs
                             text={skill.level}
-                            className="text-sm/6 text-nowrap"
+                            className="text-sm/6 text-nowrap text-white"
                           />
                         </TooltipContent>
                       )}
