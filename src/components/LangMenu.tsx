@@ -1,9 +1,14 @@
-import { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocation, useNavigate } from "react-router";
 
 const LANGUAGES = ["tw", "en"] as const;
 type Language = (typeof LANGUAGES)[number];
+
+const languageMap: Record<Language, string> = {
+  tw: "zh-TW",
+  en: "en",
+};
 
 const LangMenu: React.FC = () => {
   const { i18n } = useTranslation();
@@ -13,8 +18,9 @@ const LangMenu: React.FC = () => {
   const [lang, setLang] = useState<Language>("tw");
 
   const changeLang = (newLang: Language) => {
-    if (i18n.language !== newLang) {
-      i18n.changeLanguage(newLang);
+    const i18nLang = languageMap[newLang];
+    if (i18n.language !== i18nLang) {
+      i18n.changeLanguage(i18nLang);
       setLang(newLang);
     }
 
