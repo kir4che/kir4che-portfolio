@@ -146,7 +146,7 @@ i18n.use(initReactI18next).init({
                 "Articles can be drafted or password-protected for content control and privacy.",
               ],
               website: "https://kir4che.com/en",
-              code: "https://gitlab.com/kir4che/kir4che-blog",
+              code: "https://github.com/kir4che/kir4che-blog",
             },
             picquads: {
               title: "PicQuads 📷",
@@ -452,7 +452,7 @@ i18n.use(initReactI18next).init({
                 "文章可設定為草稿或加密保護，便於內容控管與隱私維護。",
               ],
               website: "https://kir4che.com/tw",
-              code: "https://gitlab.com/kir4che/kir4che-blog",
+              code: "https://github.com/kir4che/kir4che-blog",
             },
             picquads: {
               title: "PicQuads 📷",
