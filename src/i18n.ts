@@ -120,7 +120,6 @@ i18n.use(initReactI18next).init({
           },
           links: {
             website: "Website",
-            demoVideo: "Demo Video",
             code: "Code",
           },
           projectsList: {
@@ -224,7 +223,6 @@ i18n.use(initReactI18next).init({
                 "Stock dashboard: Includes financial ratios, sentiment radar charts, key charts, news, and a GPT-4 chatbot using RAG.",
                 "Watchlist: Users can group and monitor favorite stocks with real-time prices and insights.",
               ],
-              demoVideo: "https://www.youtube.com/watch?v=s92-9di9qa4&t=1s",
               code: "https://github.com/kir4che/stock-light-website",
             },
           },
@@ -428,7 +426,6 @@ i18n.use(initReactI18next).init({
           },
           links: {
             website: "網站連結",
-            demoVideo: "Demo 影片",
             code: "程式碼",
           },
           projectsList: {
@@ -513,7 +510,7 @@ i18n.use(initReactI18next).init({
               subtitle: "大學畢業專題",
               maintain: "n",
               suspended: "暫停服務",
-              hasVideo: false,
+              hasVideo: true,
               techStack: [
                 "Next.js",
                 "JavaScript",
@@ -532,7 +529,6 @@ i18n.use(initReactI18next).init({
                 "個股儀表板：包含財務比率、根據文本做分析輸出的情緒分數雷達圖、重要圖表資訊、相關新聞，以及透過 GPT-4 模型和資料萃取技術 (RAG) 技術的 AI 聊天機器人。",
                 "自選股清單：使用者可建立群組並加入欲關注的個股，隨時追蹤個股的即時價格、變動幅度及相關分析。",
               ],
-              demoVideo: "https://www.youtube.com/watch?v=s92-9di9qa4&t=1s",
               code: "https://github.com/kir4che/stock-light-website",
             },
           },
