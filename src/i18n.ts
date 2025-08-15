@@ -148,6 +148,30 @@ i18n.use(initReactI18next).init({
               website: "https://kir4che.com/en",
               code: "https://github.com/kir4che/kir4che-blog",
             },
+            kaomojiLab: {
+              title: "Kaomoji Lab 🧪",
+              subtitle: "Online Kaomoji Database",
+              maintain: "y",
+              hasVideo: true,
+              techStack: [
+                "React",
+                "TypeScript",
+                "Tailwind CSS",
+                "Gemini API",
+                "Upstash Rate Limit",
+              ],
+              description:
+                "A kaomoji discovery platform with over 5,000 emoticons, offering a clean, user-friendly interface for effortless browsing, copying, and sharing. It makes finding the perfect kaomoji for any occasion simple, fast, and enjoyable.\nKey features include:",
+              features: [
+                "Access over 5,000 kaomojis organized by categories and tags.",
+                "Copy kaomojis to the clipboard with one-click.",
+                "Search or browse to quickly find kaomojis.",
+                "Enjoy a seamless experience across all devices.",
+                "Local admin panel to manage kaomojis, categories, and tags.",
+              ],
+              website: "https://kaomojilab.com/",
+              code: "https://gitlab.com/kir4che/kaomoji-lab",
+            },
             picquads: {
               title: "PicQuads 📷",
               subtitle: "Online Photo Booth",
@@ -453,6 +477,30 @@ i18n.use(initReactI18next).init({
               ],
               website: "https://kir4che.com/tw",
               code: "https://github.com/kir4che/kir4che-blog",
+            },
+            kaomojiLab: {
+              title: "顏文字實驗室 🧪",
+              subtitle: "線上顏文字資料庫",
+              maintain: "y",
+              hasVideo: true,
+              techStack: [
+                "React",
+                "TypeScript",
+                "Tailwind CSS",
+                "Gemini API",
+                "Upstash Rate Limit",
+              ],
+              description:
+                "一個擁有超過 5,000 個顏文字的網站，提供乾淨且使用者友善的介面，讓使用者可以輕鬆瀏覽、複製和分享顏文字。在任何情況下，都能簡單、快速地找到最適合的顏文字。\n網站主要功能如下：",
+              features: [
+                "提供超過 5,000 個顏文字，並依分類、標籤進行整理。",
+                "一鍵複製顏文字到剪貼簿。",
+                "透過搜尋或瀏覽分類和標籤，快速找到特定的顏文字。",
+                "在所有裝置上都能享受流暢的體驗，從桌上型電腦到手機都適用。",
+                "本地設置管理後台以管理顏文字、分類和標籤。",
+              ],
+              website: "https://kaomojilab.com/",
+              code: "https://gitlab.com/kir4che/kaomoji-lab",
             },
             picquads: {
               title: "PicQuads 📷",
