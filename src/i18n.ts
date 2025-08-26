@@ -87,7 +87,7 @@ i18n.use(initReactI18next).init({
               "MUI",
               "Nivo",
               "Git",
-              "Wordpress",
+              "WordPress",
             ],
           },
           mrhost: {
@@ -401,7 +401,7 @@ i18n.use(initReactI18next).init({
                 "3": "維護與調整不同版本（公版/企業版）的樣式與邏輯",
               },
               "熟悉 Git 協作流程，參與進版與版本管理。",
-              "依 Figma 調整 Wordpress 部落格樣式",
+              "依 Figma 調整 WordPress 部落格樣式",
               "維護舊有專案",
               {
                 "0": "負責多語系文案調整",
@@ -417,7 +417,7 @@ i18n.use(initReactI18next).init({
               "MUI",
               "Nivo",
               "Git",
-              "Wordpress",
+              "WordPress",
             ],
           },
           mrhost: {
@@ -431,7 +431,7 @@ i18n.use(initReactI18next).init({
               "透過 SiteMinder 協助旅館上架資訊、房型，以及調整價格。",
               "使用 Bootstrap 5 構建一頁式網站",
               "建立 SOP 確保日常工作流程的正確及一致性",
-              "於 Wordpress 撰寫 SEO 文章",
+              "於 WordPress 撰寫 SEO 文章",
             ],
             skills: [
               "Apps Script",
@@ -647,7 +647,7 @@ i18n.use(initReactI18next).init({
               level: "了解基本操作\n具有依照設計稿切版的經驗",
             },
             wordpress: {
-              name: "Wordpress",
+              name: "WordPress",
               level:
                 "具有建立網站的經驗\n使用 Elementor 撰寫文章及編輯樣式\n了解如何自定義網站樣式",
             },
