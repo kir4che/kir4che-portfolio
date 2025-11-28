@@ -194,7 +194,7 @@ i18n.use(initReactI18next).init({
                 "Supports downloading the photo strip for easy saving and printing.",
                 "Supports sharing photos via link or QR Code for easy sharing with friends or on social media (completed but not yet released).",
               ],
-              website: "https://picquads.vercel.app/",
+              website: "https://picquads.zeabur.app/",
               code: "https://github.com/kir4che/picquads",
             },
             mernEcWebsite: {
@@ -220,7 +220,7 @@ i18n.use(initReactI18next).init({
                 "Backend can manage products, announcements and orders, including create, edit, delete operations and order status updates.",
                 "Integrated with ECPay test payment gateway to simulate payment methods.",
               ],
-              website: "https://mern-ecommerce-client-seven.vercel.app/",
+              website: "https://mern-ecommerce-website.zeabur.app/",
               code: "https://github.com/kir4che/mern-ecommerce-website",
             },
             stocklight: {
@@ -524,7 +524,7 @@ i18n.use(initReactI18next).init({
                 "支援下載拍貼照片，方便保存與列印。",
                 "可透過連結或 QR Code 分享照片，輕鬆傳給朋友或分享到社群 (已完成，尚未上線)。",
               ],
-              website: "https://picquads.vercel.app/",
+              website: "https://picquads.zeabur.app/",
               code: "https://github.com/kir4che/picquads",
             },
             mernEcWebsite: {
@@ -550,7 +550,7 @@ i18n.use(initReactI18next).init({
                 "後台提供商品、活動訊息與訂單管理，支援新增、編輯、刪除操作與更新出貨狀態。",
                 "整合綠界 ECPay 測試金流，模擬信用卡、ATM、網路 ATM 等付款方式。",
               ],
-              website: "https://mern-ecommerce-client-seven.vercel.app/",
+              website: "https://mern-ecommerce-website.zeabur.app/",
               code: "https://github.com/kir4che/mern-ecommerce-website",
             },
             stocklight: {
