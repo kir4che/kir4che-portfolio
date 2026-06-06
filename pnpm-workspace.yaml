@@ -1,0 +1,5 @@
+ignoredBuiltDependencies:
+  - sharp
+  - unrs-resolver
+patchedDependencies:
+  webgl-fluid@0.4.0: patches/webgl-fluid@0.4.0.patch

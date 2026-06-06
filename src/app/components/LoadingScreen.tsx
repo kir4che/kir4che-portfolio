@@ -1,0 +1,75 @@
+"use client";
+
+import { motion } from "motion/react";
+
+const PATHS = [
+  {
+    d: "M48.1676 4C48.203 4.03541 48.2384 4.07082 51.4163 6.06964C54.5941 8.06842 60.9132 12.0295 67.4238 16.1106M53.5551 10.8347C53.5551 10.9056 53.5551 10.9764 51.6669 14.5098C49.7787 18.0432 46.0023 25.0371 43.3832 31.1063C40.7641 37.1756 39.4166 42.1083 38.5847 45.5725C37.7527 49.0368 37.4772 50.8833 37.3352 52.0614C37.1932 53.2396 37.1932 53.6936 37.1932 54.1614",
+    stroke: "#0E9559",
+    strokeWidth: 8,
+  },
+  {
+    d: "M33.2503 59.6135C33.0356 59.1475 31.1713 57.2063 28.8319 56.0048C25.8253 54.4606 22.6774 54.661 19.9824 54.6229C17.4973 54.5878 15.4293 56.4311 13.8799 57.7891C12.3433 59.1359 10.661 61.4914 9.75117 63.4278C8.17809 66.7758 8.61036 69.207 8.51861 71.9964C8.44043 74.3732 10.4031 77.6169 11.5302 79.3996C13.4843 82.4905 17.1846 85.0648 19.1157 85.3889C21.6283 85.8106 23.6426 84.5297 25.4303 83.5914C26.8583 82.8419 28.0401 81.3562 29.7169 79.089C30.7288 77.721 30.9005 75.9104 30.9017 73.062C30.9026 71.0267 29.2663 69.3391 27.9427 68.32C27.3324 67.85 26.4398 68.0271 25.6472 68.1327C24.7128 68.4512 23.7325 69.095 22.8842 69.9159C22.5012 70.3119 22.2148 70.666 21.4849 71.8893M43.2232 61.0704C43.7885 60.4473 45.4977 58.83 47.0089 57.9051C49.0609 56.6492 55.6151 56.8607 59.321 56.8766C61.3891 56.8855 63.3133 60.4091 64.4597 62.2698C65.8178 64.4741 65.9636 67.0407 66.2032 69.2906C66.5914 72.9352 65.0916 76.2311 64.2252 77.8589C63.235 79.719 60.7325 81.1286 58.4566 82.332C56.8955 83.1576 54.7169 83.0649 50.7944 83.0286C48.4721 83.0071 46.3101 81.1388 44.6646 80.1803C43.9997 79.793 43.5941 79.1135 43.3045 78.4473C42.6409 76.9213 43.4046 74.5338 44.4573 72.9562C45.8562 70.8598 48.2368 70.715 50.0096 70.0572C50.4313 69.9384 50.7854 69.9026 51.1449 69.8482C51.5044 69.7939 51.8585 69.7221 52.5453 69.6482",
+    stroke: "#CE143F",
+    strokeWidth: 17,
+  },
+];
+
+const PER_PATH_DURATION = 1.2;
+const STAGGER = 0.9;
+const HOLD_AFTER = 0.4;
+
+interface LoadingScreenProps {
+  onDone: () => void;
+}
+
+export default function LoadingScreen({ onDone }: LoadingScreenProps) {
+  const handleAnimationComplete = (index: number) => {
+    // 確保只在最後一條路徑動畫結束時觸發
+    if (index === PATHS.length - 1) setTimeout(onDone, HOLD_AFTER * 1000);
+  };
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-9999 flex items-center justify-center"
+      style={{ background: "var(--paper, #faf8f4)" }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+    >
+      <svg
+        width="150"
+        height="188"
+        viewBox="0 0 75 94"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {PATHS.map((path, i) => (
+          <motion.path
+            key={i}
+            d={path.d}
+            stroke={path.stroke}
+            strokeWidth={path.strokeWidth}
+            strokeLinecap="round"
+            fill="none"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            onAnimationComplete={() => handleAnimationComplete(i)}
+            transition={{
+              pathLength: {
+                duration: PER_PATH_DURATION,
+                delay: i * STAGGER,
+                ease: [0.25, 0.1, 0.25, 1],
+              },
+              opacity: {
+                duration: 0.1,
+                delay: i * STAGGER,
+              },
+            }}
+          />
+        ))}
+      </svg>
+    </motion.div>
+  );
+}
