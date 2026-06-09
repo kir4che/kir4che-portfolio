@@ -23,7 +23,7 @@ export default function WorksSection() {
       >
         {tx(t.works.heading, lang)}
       </FadeUp>
-      <div className="flex-1 flex flex-col lg:flex-row pt-6 md:pt-4 pb-12 gap-8 lg:gap-[4vw]">
+      <div className="flex-1 flex max-xl:flex-col justify-between pt-6 md:pt-4 pb-12 gap-8 lg:gap-[3vw]">
         <div className="flex-1 flex items-center justify-center">
           <ul
             className="
@@ -49,7 +49,7 @@ export default function WorksSection() {
           </ul>
         </div>
         {t.otherProjects.items.length > 0 && (
-          <div className="md:w-[clamp(225px,25vw,280px)] md:flex md:flex-col max-md:hidden">
+          <div className="md:w-[clamp(225px,25vw,280px)] md:flex md:flex-col">
             <p className="text-sm font-medium tracking-widest text-accent mb-2">
               {t.otherProjects.label[lang]}
             </p>

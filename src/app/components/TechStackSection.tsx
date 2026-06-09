@@ -26,7 +26,8 @@ import {
 import { FaJava } from "react-icons/fa";
 import type { IconType } from "react-icons";
 
-const { techStackLabel, techStackHint, techGroups } = t.credentials;
+const { techStackLabel, techStackHint, learningLabel, techGroups } =
+  t.credentials;
 
 const TECH_ICONS: Record<string, { Icon: IconType; color: string }> = {
   html: { Icon: SiHtml5, color: "#E34F26" },
@@ -244,7 +245,7 @@ export default function TechStackSection() {
             </div>
           </FadeUp>
         ))}
-        <FadeUp delay={0.12 + techGroups.length * 0.06}>
+        <FadeUp delay={0.12 + (techGroups.length + 1) * 0.06}>
           <p className="text-[10px] tracking-wide text-ink-faint">
             ※ {tx(techStackHint, lang)}
           </p>

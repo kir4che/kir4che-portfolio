@@ -1,10 +1,10 @@
 export const t = {
   nav: {
-    about:      { zh: "ABOUT",      en: "ABOUT" },
-    skills:     { zh: "SKILLS",     en: "SKILLS" },
+    about: { zh: "ABOUT", en: "ABOUT" },
+    skills: { zh: "SKILLS", en: "SKILLS" },
     experience: { zh: "EXPERIENCE", en: "EXPERIENCE" },
-    works:      { zh: "WORKS",      en: "WORKS" },
-    contact:    { zh: "CONTACT",    en: "CONTACT" },
+    works: { zh: "WORKS", en: "WORKS" },
+    contact: { zh: "CONTACT", en: "CONTACT" },
   },
   hero: {
     role: { zh: "前端工程師", en: "Frontend Engineer" },
@@ -25,7 +25,13 @@ export const t = {
     },
     hashtags: {
       zh: ["ISTJ", "低調務實", "有責任感", "可獨立作業", "持續學習"],
-      en: ["ISTJ", "Low-Key & Pragmatic", "Accountable", "Self-Directed", "Always Learning"],
+      en: [
+        "ISTJ",
+        "Low-Key & Pragmatic",
+        "Accountable",
+        "Self-Directed",
+        "Always Learning",
+      ],
     },
   },
   works: {
@@ -42,18 +48,18 @@ export const t = {
         },
         highlight: {
           zh: [
-            "實作 JWT silent refresh 機制，以 mutex 避免 token 過期時多個並發請求各自觸發 refresh 造成 race condition。",
-            "RTK Query 管理 API，購物車操作含 Optimistic Update 與 rollback。",
+            "以 async-mutex 實作 JWT silent refresh，多個並發請求 token 過期時只觸發一次 refresh，其餘等待解鎖後重試。",
+            "RTK Query 統一管理 API，購物車操作含 Optimistic Update 與 rollback。",
             "訪客購物車登入後透過 Listener Middleware 自動同步至後端。",
-            "infiniteQuery + intersection-observer 實作無限捲動，含 skeleton 與圖片漸進顯示。",
-            "Vitest 撰寫 40+ 單元測試，涵蓋 utils、slices 與 UI 元件。",
+            "RTK Query infiniteQuery + IntersectionObserver 實作無限捲動，含 skeleton 與圖片淡入顯示。",
+            "Vitest 撰寫 100+ 個測試 case（41 檔案），涵蓋 utils、Redux slices 與 UI 元件。",
           ],
           en: [
-            "Implemented JWT silent refresh with mutex-based concurrency control to prevent redundant token refresh races under parallel requests.",
+            "Implemented JWT silent refresh with async-mutex to ensure only one refresh request is made during concurrent API calls when the token expires.",
             "RTK Query with optimistic updates and rollback on cart operations.",
             "Guest cart synced to server on login via Listener Middleware.",
-            "Infinite scroll via infiniteQuery + intersection-observer, with skeleton loading and progressive image reveal.",
-            "40+ Vitest unit tests covering utils, slices, and UI components.",
+            "Infinite scrolling with RTK Query's infiniteQuery and IntersectionObserver, including skeleton loading and fade-in images.",
+            "100+ Vitest test cases across 41 files covering utils, Redux slices, and UI components.",
           ],
         },
         links: {
@@ -152,7 +158,10 @@ export const t = {
         role: { zh: "前端開發實習生", en: "Frontend Development Intern" },
         date: "2024.03 － 2024.11",
         duration: { zh: "9 個月", en: "9 months" },
-        location: { zh: "臺北市松山區（混合型）", en: "Songshan District, Taipei (Hybrid)" },
+        location: {
+          zh: "臺北市松山區（混合型）",
+          en: "Songshan District, Taipei (Hybrid)",
+        },
         link: "https://www.25sprout.com/",
         content: [
           {
@@ -276,14 +285,24 @@ export const t = {
             details: [],
           },
         ],
-        skills: ["Apps Script", "Google Sheet", "HTML/CSS", "Bootstrap 5", "SiteMinder"],
+        skills: [
+          "Apps Script",
+          "Google Sheet",
+          "HTML/CSS",
+          "Bootstrap 5",
+          "SiteMinder",
+        ],
       },
     ],
   },
   credentials: {
     label: { zh: "CREDENTIALS", en: "CREDENTIALS" },
     techStackLabel: { zh: "TECH STACK", en: "TECH STACK" },
-    techStackHint: { zh: "滑鼠移至標籤上查看程度說明", en: "hover over the tags to see details" },
+    techStackHint: {
+      zh: "滑鼠移至標籤上查看程度說明",
+      en: "hover over the tags to see details",
+    },
+    learningLabel: { zh: "待學習", en: "To Learn" },
     techGroups: [
       {
         label: { zh: "前端技術", en: "Frontend" },
@@ -296,56 +315,112 @@ export const t = {
             id: "javascript",
             name: "JavaScript",
             desc: {
-              zh: ["熟悉 ES6+ 語法與常用特性", "熟悉非同步處理（Promise、async/await）", "具備 DOM 操作與第三方 API 串接經驗"],
-              en: ["Familiar with ES6+ syntax", "Async patterns (Promise, async/await)", "DOM manipulation & third-party API integration"],
+              zh: [
+                "熟悉 ES6+ 語法與常用特性",
+                "熟悉非同步處理（Promise、async/await）",
+                "具備 DOM 操作與第三方 API 串接經驗",
+              ],
+              en: [
+                "Familiar with ES6+ syntax",
+                "Async patterns (Promise, async/await)",
+                "DOM manipulation & third-party API integration",
+              ],
             },
           },
           {
             id: "typescript",
             name: "TypeScript",
             desc: {
-              zh: ["熟悉基本型別系統（type / interface / union / generic）", "能進行 API 回傳資料與前端狀態的型別設計"],
-              en: ["Basic type system (type / interface / union / generic)", "Designing types for API responses and frontend state"],
+              zh: [
+                "熟悉基本型別系統（type / interface / union / generic）",
+                "能進行 API 回傳資料與前端狀態的型別設計",
+              ],
+              en: [
+                "Basic type system (type / interface / union / generic)",
+                "Designing types for API responses and frontend state",
+              ],
             },
           },
           {
             id: "react",
             name: "React",
             desc: {
-              zh: ["熟悉 React Functional Component、常用 Hooks 及元件拆分。", "具備 React Router 路由管理經驗", "使用 Custom Hook 封裝 API 請求等可複用邏輯", "了解 RTK 基本概念", "使用 React Hook Form + Zod 進行表單狀態與驗證處理"],
-              en: ["Proficient in Functional Components, common Hooks, and component composition.", "Managed routing with React Router.", "Extracted reusable logic (e.g., API requests) into Custom Hooks.", "Used RTK Query for API management, optimistic updates, and cache control.", "Handled form state and validation with React Hook Form + Zod."],
+              zh: [
+                "熟悉 React Functional Component、常用 Hooks 及元件拆分。",
+                "具備 React Router 路由管理經驗",
+                "使用 Custom Hook 封裝 API 請求等可複用邏輯",
+                "了解 RTK 基本概念",
+                "使用 React Hook Form + Zod 進行表單狀態與驗證處理",
+              ],
+              en: [
+                "Proficient in Functional Components, common Hooks, and component composition.",
+                "Managed routing with React Router.",
+                "Extracted reusable logic (e.g., API requests) into Custom Hooks.",
+                "Used RTK Query for API management, optimistic updates, and cache control.",
+                "Handled form state and validation with React Hook Form + Zod.",
+              ],
             },
           },
           {
             id: "nextjs",
             name: "Next.js",
             desc: {
-              zh: ["了解 App Router 架構與 Server / Client Component 元件分離設計", "依頁面需求選擇 SSG / ISR / SSR 渲染策略", "整合 NextAuth.js 實作 OAuth 登入、next-intl 處理多語系路由"],
-              en: ["Understand App Router architecture and Server/Client Component separation.", "Selected SSG / ISR / SSR per page based on data requirements", "Integrated NextAuth.js for OAuth and next-intl for i18n routing"],
+              zh: [
+                "了解 App Router 架構與 Server / Client Component 元件分離設計",
+                "依頁面需求選擇 SSG / ISR / SSR 渲染策略",
+                "整合 NextAuth.js 實作 OAuth 登入、next-intl 處理多語系路由",
+              ],
+              en: [
+                "Understand App Router architecture and Server/Client Component separation.",
+                "Selected SSG / ISR / SSR per page based on data requirements",
+                "Integrated NextAuth.js for OAuth and next-intl for i18n routing",
+              ],
             },
           },
           {
             id: "astro",
             name: "Astro",
             desc: {
-              zh: ["實際以 Astro 建構部落格，深入應用 Island Architecture 渲染機制。", "使用 Content Collections 建立文章 Schema", "動態生成 OG 圖片"],
-              en: ["Built the blog from scratch with Astro, applying Island Architecture for selective component hydration.", "Defined article schemas using Content Collections.", "Generated dynamic OG images."],
+              zh: [
+                "實際以 Astro 建構部落格，深入應用 Island Architecture 渲染機制。",
+                "使用 Content Collections 建立文章 Schema",
+                "動態生成 OG 圖片",
+              ],
+              en: [
+                "Built the blog from scratch with Astro, applying Island Architecture for selective component hydration.",
+                "Defined article schemas using Content Collections.",
+                "Generated dynamic OG images.",
+              ],
             },
           },
           {
             id: "tailwind",
             name: "Tailwind CSS",
             desc: {
-              zh: ["自訂與擴充主題", "使用 breakpoint 實現 RWD", "使用 tailwind-merge 或 clsx 處理條件式 class 組合"],
-              en: ["Customized and extended themes.", "Implemented RWD with breakpoints.", "Used tailwind-merge or clsx for conditional class composition."],
+              zh: [
+                "自訂與擴充主題",
+                "使用 breakpoint 實現 RWD",
+                "使用 tailwind-merge 或 clsx 處理條件式 class 組合",
+              ],
+              en: [
+                "Customized and extended themes.",
+                "Implemented RWD with breakpoints.",
+                "Used tailwind-merge or clsx for conditional class composition.",
+              ],
             },
           },
           {
             id: "sass",
             name: "Sass / SCSS",
             desc: {
-              zh: ["熟悉基本語法與功能（變數、mixin、繼承）", "使用 media queries 建立 responsive layout，提升跨裝置相容性"],
-              en: ["Familiar with basic syntax and features (variables, mixin, inheritance).", "Used media queries to build responsive layouts."],
+              zh: [
+                "熟悉基本語法與功能（變數、mixin、繼承）",
+                "使用 media queries 建立 responsive layout，提升跨裝置相容性",
+              ],
+              en: [
+                "Familiar with basic syntax and features (variables, mixin, inheritance).",
+                "Used media queries to build responsive layouts.",
+              ],
             },
           },
           {
@@ -367,8 +442,16 @@ export const t = {
             id: "nodejs",
             name: "Node.js / Express",
             desc: {
-              zh: ["採用分層設計（routes / controllers / services）建立 RESTful API", "設計 middleware system（authentication、authorization、error handling）", "實作 JWT 認證與 refresh token 機制"],
-              en: ["Layered architecture (routes / controllers / services) for RESTful APIs.", "Middleware for authentication, authorization, and centralized error handling.", "JWT-based authentication with access and refresh token flow."],
+              zh: [
+                "採用分層設計（routes / controllers / services）建立 RESTful API",
+                "設計 middleware system（authentication、authorization、error handling）",
+                "實作 JWT 認證與 refresh token 機制",
+              ],
+              en: [
+                "Layered architecture (routes / controllers / services) for RESTful APIs.",
+                "Middleware for authentication, authorization, and centralized error handling.",
+                "JWT-based authentication with access and refresh token flow.",
+              ],
             },
           },
           {
@@ -377,7 +460,9 @@ export const t = {
             level: "basic",
             desc: {
               zh: ["了解基本 CRUD 查詢、排序、JOIN 操作"],
-              en: ["Understand basic CRUD queries, sorting, and JOIN operations."],
+              en: [
+                "Understand basic CRUD queries, sorting, and JOIN operations.",
+              ],
             },
           },
           {
@@ -385,8 +470,16 @@ export const t = {
             name: "Java",
             level: "basic",
             desc: {
-              zh: ["了解基本語法", "使用過 Swing 開發桌面應用程式", "了解 Spring Boot 基本使用，並實作過簡單的 RESTful API。"],
-              en: ["Understand basic syntax.", "Experience with Swing for desktop application development.", "Understanding of Spring Boot basics and implementation of simple RESTful APIs."],
+              zh: [
+                "了解基本語法",
+                "使用過 Swing 開發桌面應用程式",
+                "了解 Spring Boot 基本使用，並實作過簡單的 RESTful API。",
+              ],
+              en: [
+                "Understand basic syntax.",
+                "Experience with Swing for desktop application development.",
+                "Understanding of Spring Boot basics and implementation of simple RESTful APIs.",
+              ],
             },
           },
           {
@@ -394,8 +487,14 @@ export const t = {
             name: "Python",
             level: "basic",
             desc: {
-              zh: ["了解基本語法", "使用 requests / BeautifulSoup 爬取 YouTube、Dcard 等網站資料"],
-              en: ["Understand basic syntax.", "Scraped data from YouTube and Dcard using requests / BeautifulSoup."],
+              zh: [
+                "了解基本語法",
+                "使用 requests / BeautifulSoup 爬取 YouTube、Dcard 等網站資料",
+              ],
+              en: [
+                "Understand basic syntax.",
+                "Scraped data from YouTube and Dcard using requests / BeautifulSoup.",
+              ],
             },
           },
         ],
@@ -406,14 +505,29 @@ export const t = {
           {
             id: "vitest",
             name: "Vitest",
-            level: "basic",
+            desc: {
+              zh: [
+                "能獨立以 Vitest + RTL 設計測試案例，涵蓋 Mock API、非同步、路由守衛等情境",
+                "曾於專案中撰寫 100+ 測試案例（41 檔案），覆蓋 utils、Redux slices 與 UI 元件",
+              ],
+              en: [
+                "Independently design test cases with Vitest + RTL for Mock API, async, and route guard scenarios",
+                "Authored 100+ test cases across 41 files covering utils, Redux slices, and UI components",
+              ],
+            },
           },
           {
             id: "git",
             name: "Git",
             desc: {
-              zh: ["實習期間在團隊中參與 PR 流程與 code review", "熟悉 feature branch 工作流與版本控制"],
-              en: ["Participated in PR workflows and code reviews within the team during internships.", "Familiar with feature branch workflow and version control."],
+              zh: [
+                "實習期間在團隊中參與 PR 流程與 code review",
+                "熟悉 feature branch 工作流與版本控制",
+              ],
+              en: [
+                "Participated in PR workflows and code reviews within the team during internships.",
+                "Familiar with feature branch workflow and version control.",
+              ],
             },
           },
           {
@@ -421,7 +535,9 @@ export const t = {
             name: "Figma",
             desc: {
               zh: ["具備依照 Figma 設計稿精準還原介面的實務經驗"],
-              en: ["Experience translating Figma designs into pixel-perfect UIs."],
+              en: [
+                "Experience translating Figma designs into pixel-perfect UIs.",
+              ],
             },
           },
         ],
@@ -431,15 +547,36 @@ export const t = {
       sectionLabel: { zh: "學歷", en: "EDUCATION" },
       items: [
         {
-          name: { zh: "國立臺北科技大學", en: "National Taipei University of Technology" },
-          dept: { zh: "資訊與財金管理系 · 學士", en: "Dept. of Information and Finance Management · B.S." },
+          name: {
+            zh: "國立臺北科技大學",
+            en: "National Taipei University of Technology",
+          },
+          dept: {
+            zh: "資訊與財金管理系 · 學士",
+            en: "Dept. of Information and Finance Management · B.S.",
+          },
           period: "2020 – 2024",
           logo: "https://upload.wikimedia.org/wikipedia/zh/7/7e/National_Taipei_University_of_Technology_seal.svg",
           award: {
-            title: { zh: "畢業專題：股市光明燈", en: "Capstone Project: Stock Light" },
+            title: {
+              zh: "畢業專題：股市光明燈",
+              en: "Capstone Project: Stock Light",
+            },
             linkLabel: { zh: "Demo", en: "Demo" },
-            desc: { zh: ["負責「前端開發 + UI/UX 設計」", "榮獲資財之星專題成果發表會精誠金獎 1st"], en: ["Responsible for frontend development and UI/UX design.", "Awarded 1st place at the NTUT IFM Capstone Project Exhibition."] },
-            highlight: { zh: "資財之星專題成果發表會精誠金獎 1st", en: "1st place at NTUT IFM Capstone Exhibition" },
+            desc: {
+              zh: [
+                "負責「前端開發 + UI/UX 設計」",
+                "榮獲資財之星專題成果發表會精誠金獎 1st",
+              ],
+              en: [
+                "Responsible for frontend development and UI/UX design.",
+                "Awarded 1st place at the NTUT IFM Capstone Project Exhibition.",
+              ],
+            },
+            highlight: {
+              zh: "資財之星專題成果發表會精誠金獎 1st",
+              en: "1st place at NTUT IFM Capstone Exhibition",
+            },
             href: "https://www.youtube.com/watch?v=bPptTi9uR-0",
           },
         },
@@ -450,7 +587,10 @@ export const t = {
       linkLabel: { zh: "證書", en: "Cert." },
       items: [
         {
-          name: { zh: "Back End Development and APIs", en: "Back End Development and APIs" },
+          name: {
+            zh: "Back End Development and APIs",
+            en: "Back End Development and APIs",
+          },
           issuer: "freeCodeCamp",
           date: { zh: "2023 年 10 月", en: "Oct 2023" },
           logo: "https://design-style-guide.freecodecamp.org/img/fcc_secondary_small.svg",
@@ -479,7 +619,10 @@ export const t = {
     ] as OtherProjectItem[],
   },
   contact: {
-    cubeHint: { zh: "拖曳旋轉 · 點擊開啟連結", en: "drag to rotate · click to open" },
+    cubeHint: {
+      zh: "拖曳旋轉 · 點擊開啟連結",
+      en: "drag to rotate · click to open",
+    },
   },
 } as const;
 
@@ -501,4 +644,7 @@ export type OtherProjectItem = {
   links: Links;
 };
 
-export const tx = <T extends { zh: string; en: string }>(entry: T, lang: Lang): string => entry[lang];
+export const tx = <T extends { zh: string; en: string }>(
+  entry: T,
+  lang: Lang,
+): string => entry[lang];
