@@ -144,7 +144,7 @@ export default function WorkCard({
   highlight,
   links,
   index,
-  variant = "grid",
+  variant,
 }: WorkCardProps) {
   const [hovered, setHovered] = useState(false);
   const reduced = useReducedMotion();
@@ -152,41 +152,13 @@ export default function WorkCard({
   const { lang } = useLang();
 
   const highlightItems = highlight ?? [];
-  const href = links.live ?? links.demo ?? links.github;
   const transition = cardTransition(index);
 
-  if (variant === "sidebar")
-    return (
-      <motion.a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={title}
-        className="relative overflow-hidden rounded-xl bg-paper shadow-[0_2px_12px_oklch(0.28_0.02_30/0.08)] flex flex-col h-full cursor-pointer group"
-        initial={{ opacity: 0, y: reduced ? 0 : 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, root: viewportRef, amount: 0.2 }}
-        transition={transition}
-      >
-        <div className="relative overflow-hidden aspect-video">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            sizes="280px"
-            className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-          />
-        </div>
-        <WorkMeta title={title} year={year} />
-        <p className="text-[10px] tracking-wider text-accent px-4 pb-3">
-          {tags}
-        </p>
-      </motion.a>
-    );
+  const primaryLink = links.live ?? links.github ?? links.demo;
 
-  return (
+  const card = (
     <motion.div
-      className="relative overflow-hidden rounded-xl bg-paper shadow-[0_2px_12px_oklch(0.28_0.02_30/0.08)] flex flex-col h-full"
+      className={`relative overflow-hidden rounded-md bg-paper shadow-[0_2px_12px_oklch(0.28_0.02_30/0.08)] flex flex-col h-full${variant === "sidebar" ? " transition-shadow duration-200 hover:shadow-[0_2px_16px_oklch(0.28_0.02_30/0.12)]" : ""}`}
       initial={{ opacity: 0, y: reduced ? 0 : 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, root: viewportRef, amount: 0.2 }}
@@ -196,7 +168,7 @@ export default function WorkCard({
       onFocus={() => setHovered(true)}
       onBlur={() => setHovered(false)}
     >
-      <div className="relative overflow-hidden aspect-video md:aspect-auto md:flex-1 md:min-h-0">
+      <div className={`relative overflow-hidden aspect-video md:aspect-auto md:flex-1 md:min-h-0${variant === "sidebar" ? " hidden" : ""}`}>
         <Image
           src={image}
           alt={title}
@@ -213,47 +185,67 @@ export default function WorkCard({
             {desc}
           </p>
         )}
-        <p className="text-[10px] tracking-wider text-accent px-4 pb-3 max-md:hidden">
+        <p className="text-[10px] tracking-wider text-accent px-4 pb-3">
           {tags}
         </p>
-        <div className="md:hidden px-4 pb-3">
-          <HighlightList items={highlightItems} mobile reduced={reduced} />
-          <div className="flex gap-3">
-            <WorkLinks
-              links={links}
-              title={title}
-              lang={lang}
-              className="text-xs text-accent hover:underline"
-            />
-          </div>
-        </div>
-      </div>
-      <AnimatePresence>
-        {hovered && (
-          <motion.div
-            className="absolute inset-0 max-md:hidden flex flex-col justify-between gap-3 p-5 backdrop-blur-sm"
-            style={{ background: "oklch(0.28 0.02 30 / 0.72)" }}
-            initial={{ opacity: 0, y: reduced ? 0 : 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: reduced ? 0 : 3 }}
-            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <HighlightList
-              items={highlightItems}
-              mobile={false}
-              reduced={reduced}
-            />
-            <div className="flex gap-2 flex-wrap">
+        {variant !== "sidebar" && (
+          <div className="md:hidden px-4 pb-3">
+            <HighlightList items={highlightItems} mobile reduced={reduced} />
+            <div className="flex gap-3">
               <WorkLinks
                 links={links}
                 title={title}
                 lang={lang}
-                className="text-sm font-semibold bg-paper/15 border border-paper/50 text-paper px-4 py-2 rounded-full hover:bg-paper hover:text-ink transition-colors duration-200 pointer-events-auto"
+                className="text-xs text-accent hover:underline"
               />
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
+      </div>
+      {variant !== "sidebar" && (
+        <AnimatePresence>
+          {hovered && (
+            <motion.div
+              className="absolute inset-0 max-md:hidden flex flex-col justify-between gap-3 p-5 backdrop-blur-sm"
+              style={{ background: "oklch(0.28 0.02 30 / 0.72)" }}
+              initial={{ opacity: 0, y: reduced ? 0 : 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: reduced ? 0 : 3 }}
+              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <HighlightList
+                items={highlightItems}
+                mobile={false}
+                reduced={reduced}
+              />
+              <div className="flex gap-2 flex-wrap">
+                <WorkLinks
+                  links={links}
+                  title={title}
+                  lang={lang}
+                  className="text-sm font-semibold bg-paper/15 border border-paper/50 text-paper px-4 py-2 rounded-full hover:bg-paper hover:text-ink transition-colors duration-200 pointer-events-auto"
+                />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
     </motion.div>
   );
+
+  if (variant === "sidebar" && primaryLink) {
+    return (
+      <a
+        href={primaryLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={title}
+        className="block"
+      >
+        {card}
+      </a>
+    );
+  }
+
+  return card;
 }

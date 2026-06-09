@@ -51,7 +51,9 @@ const HighlightDesc = ({
             ) : (
               <>
                 {before}
-                <span className="text-accent-green font-medium">{highlight}</span>
+                <span className="text-accent-green font-medium">
+                  {highlight}
+                </span>
                 {after}
               </>
             )}
@@ -108,7 +110,8 @@ export default function CredentialsSection() {
                 alt={tx(item.name, lang)}
                 width={30}
                 height={30}
-                className="object-contain shrink-0"
+                className="shrink-0"
+                style={{ width: 30, height: 30 }}
               />
               <p className="xl:text-[1.05rem] font-semibold leading-snug">
                 {tx(item.name, lang)}
@@ -159,7 +162,8 @@ export default function CredentialsSection() {
                 alt={item.issuer}
                 width={25}
                 height={25}
-                className="object-contain shrink-0"
+                className="shrink-0"
+                style={{ width: 25, height: 25 }}
               />
               <p className="xl:text-[1.05rem] font-semibold leading-snug">
                 {tx(item.name, lang)}{" "}
@@ -184,6 +188,7 @@ export default function CredentialsSection() {
         width={68}
         height={80}
         className="absolute top-[-3vh] left-[36vw] max-md:hidden rotate-15 opacity-80"
+        style={{ width: 68, height: 80 }}
       />
     </div>
   );

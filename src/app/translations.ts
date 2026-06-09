@@ -42,18 +42,18 @@ export const t = {
         },
         highlight: {
           zh: [
-            "實作 JWT silent refresh 機制，以 mutex 避免 token 過期時多個並發請求各自觸發 refresh 造成 race condition。",
-            "RTK Query 管理 API，購物車操作含 Optimistic Update 與 rollback。",
+            "以 async-mutex 實作 JWT silent refresh，多個並發請求 token 過期時只觸發一次 refresh，其餘等待解鎖後重試。",
+            "RTK Query 統一管理 API，購物車操作含 Optimistic Update 與 rollback。",
             "訪客購物車登入後透過 Listener Middleware 自動同步至後端。",
-            "infiniteQuery + intersection-observer 實作無限捲動，含 skeleton 與圖片漸進顯示。",
-            "Vitest 撰寫 40+ 單元測試，涵蓋 utils、slices 與 UI 元件。",
+            "RTK Query infiniteQuery + IntersectionObserver 實作無限捲動，含 skeleton 與圖片淡入顯示。",
+            "Vitest 撰寫 100+ 個測試 case（41 檔案），涵蓋 utils、Redux slices 與 UI 元件。",
           ],
           en: [
-            "Implemented JWT silent refresh with mutex-based concurrency control to prevent redundant token refresh races under parallel requests.",
+            "Implemented JWT silent refresh with async-mutex to ensure only one refresh request is made during concurrent API calls when the token expires.",
             "RTK Query with optimistic updates and rollback on cart operations.",
             "Guest cart synced to server on login via Listener Middleware.",
-            "Infinite scroll via infiniteQuery + intersection-observer, with skeleton loading and progressive image reveal.",
-            "40+ Vitest unit tests covering utils, slices, and UI components.",
+            "Infinite scrolling with RTK Query's infiniteQuery and IntersectionObserver, including skeleton loading and fade-in images.",
+            "100+ Vitest test cases across 41 files covering utils, Redux slices, and UI components.",
           ],
         },
         links: {
@@ -284,6 +284,7 @@ export const t = {
     label: { zh: "CREDENTIALS", en: "CREDENTIALS" },
     techStackLabel: { zh: "TECH STACK", en: "TECH STACK" },
     techStackHint: { zh: "滑鼠移至標籤上查看程度說明", en: "hover over the tags to see details" },
+    learningLabel: { zh: "待學習", en: "To Learn" },
     techGroups: [
       {
         label: { zh: "前端技術", en: "Frontend" },
