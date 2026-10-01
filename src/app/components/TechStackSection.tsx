@@ -17,6 +17,9 @@ import {
   SiMui,
   SiNodedotjs,
   SiMysql,
+  SiMongodb,
+  SiPython,
+  SiWordpress,
   SiVitest,
   SiGit,
   SiFigma,
@@ -45,6 +48,8 @@ const TECH_ICONS: Record<string, { Icon: IconType; color: string }> = {
   gsap: { Icon: SiGreensock, color: "#88CE02" },
   nodejs: { Icon: SiNodedotjs, color: "#339933" },
   mysql: { Icon: SiMysql, color: "#4479A1" },
+  mongodb: { Icon: SiMongodb, color: "#47A248" },
+  python: { Icon: SiPython, color: "#3776AB" },
   java: { Icon: FaJava, color: "#ED8B00" },
   springboot: { Icon: SiSpringboot, color: "#6DB33F" },
   vitest: { Icon: SiVitest, color: "#6E9F18" },
@@ -54,6 +59,7 @@ const TECH_ICONS: Record<string, { Icon: IconType; color: string }> = {
   figma: { Icon: SiFigma, color: "#F24E1E" },
   photoshop: { Icon: TbBrandAdobePhotoshop, color: "#31A8FF" },
   docker: { Icon: SiDocker, color: "#2496ED" },
+  wordpress: { Icon: SiWordpress, color: "#21759B" },
   aiWorkflow: { Icon: SiOpenai, color: "#000000" },
 };
 

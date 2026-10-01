@@ -187,19 +187,18 @@ export const t = {
             details: [
               {
                 zh: "依設計稿維護官網，含文案更新、樣式調整、RWD 優化及埋設 GA / GTM 事件追蹤。",
-                en: "Maintained the website per design specs — copy updates, style refinements, RWD optimization, and GA/GTM event tracking.",
+                en: "Maintained the website according to design specifications, handling copy updates, style refinements, responsive design optimization, and GA/GTM event tracking.",
                 highlight: {
                   zh: ["RWD 優化", "GA / GTM 事件追蹤"],
-                  en: ["RWD optimization", "GA/GTM event tracking"],
+                  en: [
+                    "Responsive design optimization",
+                    "GA/GTM event tracking",
+                  ],
                 },
               },
               {
-                zh: "獨立開發「問卷範本」頁面，含路由架構、API 串接、搜尋功能與 Modal 互動。",
-                en: "Independently built the survey template page — routing, API integration, search and modal interactions.",
-                highlight: {
-                  zh: ["獨立開發", "API 串接"],
-                  en: ["Independently built", "API integration"],
-                },
+                zh: "開發「問卷範本」頁面，含路由架構、API 串接、搜尋功能與 Modal 互動。",
+                en: "Built the Survey Templates page, implementing routing, API integration, search, and modal interactions.",
                 href: "https://www.surveycake.com/zh-tw/templates",
               },
               {
@@ -209,7 +208,7 @@ export const t = {
               },
               {
                 zh: "與 PM、設計師、行銷團隊討論需求，提供技術可行性評估並負責執行。",
-                en: "Collaborated with PM, Design, and Marketing to evaluate technical feasibility and implement solutions.",
+                en: "Collaborated with PMs, designers, and the marketing team to evaluate technical feasibility and implement solutions.",
                 highlight: {
                   zh: ["技術可行性評估"],
                   en: ["technical feasibility"],
@@ -233,7 +232,7 @@ export const t = {
               },
               {
                 zh: "修復企業用戶匯出功能，處理 File API 串接，並排查流程中的 API 回應與狀態更新問題。",
-                en: "Fixed the enterprise user export feature from end-to-end, integrating the File API and troubleshooting API response and state update issues in the flow.",
+                en: "Fixed the enterprise user export feature end to end by integrating the File API and troubleshooting API responses and state updates throughout the workflow.",
               },
               {
                 zh: "於 73 個檔案導入 sanitize-url，修補 XSS 風險並通過 DAST 高風險項目檢查，並升級 Bootstrap / jQuery，修復 CSS specificity 衝突。",
@@ -247,29 +246,21 @@ export const t = {
           },
           {
             task: {
-              zh: "協助開發 SurveyCake XM 產品",
-              en: "Contributed to SurveyCake XM Product Development",
+              zh: "參與 SurveyCake XM 產品開發",
+              en: "Contributed to SurveyCake XM product development",
             },
             details: [
               {
-                zh: "從零實作完整 Sentiment Analysis 模組，包含趨勢圖、Topic Ranking Table、Sentiment Expressions Table 及 Topic Detail 頁面。",
-                en: "Built the full Sentiment Analysis module from scratch, including a trend chart, Topic Ranking Table, Sentiment Expressions Table, and Topic Detail page.",
+                zh: "前期協助 UI、文案調整、圖表優化與 bug 修復；後期獨立負責情緒分析功能的前端開發，涵蓋頁面實作、API 串接與完整資料流整合，並使用 Nivo 製作自定義圖表。",
+                en: "Initially supported UI and copy updates, chart improvements, and bug fixes; later independently led frontend development of the Sentiment Analysis feature, including page development, API integration, end-to-end data flow, and custom Nivo charts.",
                 highlight: {
-                  zh: ["完整 Sentiment Analysis 模組", "Topic Detail 頁面"],
-                  en: ["full Sentiment Analysis module", "Topic Detail page"],
-                },
-              },
-              {
-                zh: "串接後端 Sentiment Themes API，完成 Topic Detail 頁面的完整資料流。",
-                en: "Integrated the Sentiment Themes API to complete the end-to-end data flow for the Topic Detail page.",
-                highlight: {
-                  zh: ["Sentiment Themes API", "完整資料流"],
-                  en: ["Sentiment Themes API", "end-to-end data flow"],
+                  zh: ["API 串接", "Nivo 製作自定義圖表"],
+                  en: ["API integration", "custom Nivo charts"],
                 },
               },
               {
                 zh: "排查並修復 filter query routing 問題，解決跨頁面篩選狀態不一致的錯誤。",
-                en: "Diagnosed and fixed a filter query routing bug that caused inconsistent filter state across pages.",
+                en: "Diagnosed and fixed a filter query routing bug that caused inconsistent filter states across pages.",
               },
             ],
           },
@@ -284,20 +275,16 @@ export const t = {
                 en: "Joined daily stand-ups, tracked work items in Jira, and logged time as part of the team's Scrum workflow.",
               },
               {
-                zh: "參與 Git 協作流程，執行進版、code review 與版本管理。",
-                en: "Participated in Git-based collaboration including branching, code review, and release management.",
+                zh: "參與 Git 協作流程，依循 feature branch 工作流進行開發與進版，並參與 code review。",
+                en: "Collaborated using Git and a feature branch workflow for development and releases, and participated in code reviews.",
                 highlight: {
-                  zh: ["Git 協作流程", "code review"],
-                  en: ["Git-based collaboration", "code review"],
+                  zh: ["Git 協作流程"],
+                  en: ["Collaborated using Git"],
                 },
               },
               {
-                zh: "維護多個舊有專案，包含多語系文案更新、PUG、PHP 跨語言調整。",
-                en: "Maintained multiple legacy projects, including multilingual copy updates and adjustments across PUG and PHP.",
-                highlight: {
-                  zh: ["PUG、PHP 跨語言調整"],
-                  en: ["PUG and PHP"],
-                },
+                zh: "維護多個舊有專案，包含多語系文案更新、Pug、PHP 跨語言調整。",
+                en: "Maintained multiple legacy projects, including multilingual copy updates and changes across Pug templates and PHP code.",
               },
             ],
           },
@@ -316,10 +303,10 @@ export const t = {
           {
             task: {
               zh: "撰寫 Apps Script 自動化內部 Google 試算表工作流程，減少人工重複操作。",
-              en: "Wrote Apps Script automation to streamline internal Google Sheets workflows and reduce manual operations.",
+              en: "Wrote Apps Script automation to streamline internal Google Sheets workflows and reduce repetitive manual work.",
               highlight: {
                 zh: ["Apps Script 自動化", "減少人工重複操作"],
-                en: ["Apps Script automation", "reduce manual operations"],
+                en: ["Apps Script automation", "repetitive manual work"],
               },
             },
             details: [],
@@ -333,8 +320,8 @@ export const t = {
           },
           {
             task: {
-              zh: "制定 SOP 文件，確保跨人員作業流程的一致性與正確性。",
-              en: "Established SOP documentation to ensure consistency and accuracy across team operations.",
+              zh: "協助撰寫 SOP 文件，確保跨人員作業流程的一致性與正確性。",
+              en: "Assisted in writing SOPs to ensure consistency and accuracy across team operations.",
             },
             details: [],
           },
@@ -359,12 +346,8 @@ export const t = {
     learningLabel: { zh: "待學習", en: "To Learn" },
     techGroups: [
       {
-        label: { zh: "前端技術", en: "Frontend" },
+        label: { zh: "程式語言", en: "Programming Languages" },
         items: [
-          {
-            id: "html",
-            name: "HTML5 / CSS3",
-          },
           {
             id: "javascript",
             name: "JavaScript",
@@ -394,6 +377,32 @@ export const t = {
                 "Experience designing types for API responses and frontend state.",
               ],
             },
+          },
+          {
+            id: "java",
+            name: "Java",
+            level: "basic",
+            desc: {
+              zh: ["了解基本語法", "使用過 Swing 開發桌面應用程式"],
+              en: [
+                "Understand basic syntax.",
+                "Experience with Swing for desktop application development.",
+              ],
+            },
+          },
+          {
+            id: "python",
+            name: "Python",
+            level: "basic",
+          },
+        ],
+      },
+      {
+        label: { zh: "前端技術", en: "Frontend" },
+        items: [
+          {
+            id: "html",
+            name: "HTML5 / CSS3",
           },
           {
             id: "react",
@@ -479,18 +488,6 @@ export const t = {
             },
           },
           {
-            id: "java",
-            name: "Java",
-            level: "basic",
-            desc: {
-              zh: ["了解基本語法", "使用過 Swing 開發桌面應用程式"],
-              en: [
-                "Understand basic syntax.",
-                "Experience with Swing for desktop application development.",
-              ],
-            },
-          },
-          {
             id: "springboot",
             name: "Spring Boot",
             level: "basic",
@@ -536,12 +533,6 @@ export const t = {
             id: "msw",
             name: "MSW",
             level: "basic",
-            desc: {
-              zh: ["在元件測試中模擬 API 回應，驗證成功、空資料與錯誤狀態。"],
-              en: [
-                "Mock API responses in component tests to verify success, empty-data, and error states.",
-              ],
-            },
           },
         ],
       },
@@ -567,7 +558,7 @@ export const t = {
                 "自動部署 GitHub Pages",
               ],
               en: [
-                "Git Flow workflow",
+                "Git Flow",
                 "Version control",
                 "CI/CD",
                 "Automated deployment to GitHub Pages.",
@@ -585,19 +576,20 @@ export const t = {
             },
           },
           {
-            id: "photoshop",
-            name: "Adobe Photoshop",
-            desc: {
-              zh: ["可進行圖片裁切、尺寸調整、簡單修圖與網頁素材匯出"],
-              en: [
-                "Able to crop, resize, retouch, and export image assets for web use.",
-              ],
-            },
-          },
-          {
             id: "docker",
             name: "Docker",
             level: "basic",
+          },
+          {
+            id: "wordpress",
+            name: "WordPress",
+            level: "basic",
+            desc: {
+              zh: ["具備 WordPress 內容、樣式與自定義 JavaScript 維護經驗"],
+              en: [
+                "Experience maintaining WordPress content, styles, and custom JavaScript.",
+              ],
+            },
           },
         ],
       },
@@ -629,12 +621,12 @@ export const t = {
               ],
               en: [
                 "Responsible for frontend development and UI/UX design.",
-                "Awarded 1st place at the NTUT IFM Capstone Project Exhibition.",
+                "Awarded the Jingcheng Gold Award for 1st place at the NTUT IFM Capstone Project Exhibition.",
               ],
             },
             highlight: {
-              zh: "資財之星專題成果發表會精誠金獎 1st",
-              en: "1st place at NTUT IFM Capstone Exhibition",
+              zh: "精誠金獎 1st",
+              en: "Jingcheng Gold Award for 1st place",
             },
             href: "https://www.youtube.com/watch?v=bPptTi9uR-0",
           },

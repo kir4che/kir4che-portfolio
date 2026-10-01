@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>蘇昶諭 — 前端工程師履歷</title>
+    <title>蘇昶諭 – 前端工程師履歷</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -168,7 +168,7 @@
         display: block;
       }
 
-      /* unused — kept for compat */
+      /* unused – kept for compat */
       .hd-avatar-wrap {
         display: contents;
       }
@@ -180,7 +180,7 @@
       }
 
       /* ══════════════════════════════
-   BODY — two columns
+   BODY – two columns
 ══════════════════════════════ */
       .body {
         display: flex;
@@ -346,6 +346,12 @@
         gap: 3mm;
         margin-bottom: 0.6mm;
       }
+      .exp-main {
+        display: flex;
+        align-items: baseline;
+        gap: 2mm;
+        min-width: 0;
+      }
       .exp-co {
         font-size: 9.5pt;
         font-weight: 700;
@@ -361,7 +367,7 @@
         font-size: 7.5pt;
         font-weight: 600;
         color: var(--accent-mid);
-        margin-bottom: 2mm;
+        margin-bottom: 0;
       }
 
       .sub-hd {
@@ -399,6 +405,11 @@
         font-size: 10pt;
         line-height: 1;
         font-weight: 700;
+      }
+      .proj-desc {
+        font-size: 7.5pt;
+        color: var(--ink-2);
+        line-height: 1.42;
       }
 
       /* ══════════════════════════════
@@ -451,7 +462,7 @@
         margin-bottom: 1.8mm;
       }
       .ptag {
-        font-size: 6.2pt;
+        font-size: 6pt;
         font-weight: 500;
         background: #d2e6f9;
         color: var(--accent-mid);
@@ -603,20 +614,26 @@
         <!-- ── SIDEBAR ── -->
         <aside class="sidebar">
           <section>
-            <div class="sh">前端技術</div>
+            <div class="sh">程式語言</div>
             <div class="tags">
               <span class="tag">JavaScript</span>
               <span class="tag">TypeScript</span>
+            </div>
+          </section>
+
+          <section>
+            <div class="sh">前端</div>
+            <div class="tags">
               <span class="tag">HTML / CSS</span>
-              <span class="tag">React / Next.js</span>
-              <span class="tag">Astro</span>
+              <span class="tag">React</span>
+              <span class="tag">Next.js</span>
               <span class="tag">Tailwind CSS</span>
               <span class="tag">Sass / SCSS</span>
             </div>
           </section>
 
           <section>
-            <div class="sh">後端技術</div>
+            <div class="sh">後端</div>
             <div class="tags">
               <span class="tag">Node.js / Express</span>
               <span class="tag">MongoDB</span>
@@ -625,20 +642,13 @@
           </section>
 
           <section>
-            <div class="sh">測試</div>
+            <div class="sh">工具</div>
             <div class="tags">
-              <span class="tag">Vitest</span>
-              <span class="tag">Testing Library</span>
-              <span class="tag">MSW</span>
-            </div>
-          </section>
-
-          <section>
-            <div class="sh">其他工具</div>
-            <div class="tags">
-              <span class="tag">Git</span>
-              <span class="tag">Figma</span>
               <span class="tag">AI 協作開發</span>
+              <span class="tag">Git</span>
+              <span class="tag">Vitest</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Figma</span>
             </div>
           </section>
 
@@ -700,60 +710,62 @@
 
             <div class="exp exp-current">
               <div class="exp-hd">
-                <span class="exp-co">手浮梯工作室</span>
-                <span class="exp-period">2025.03 — 至今</span>
+                <div class="exp-main">
+                  <span class="exp-co">手浮梯工作室</span>
+                  <span class="exp-role">電商營運（自營蝦皮）</span>
+                </div>
+                <span class="exp-period">2025.03 – 至今</span>
               </div>
-              <div class="exp-role">電商營運（自營蝦皮）</div>
             </div>
 
             <div class="exp">
               <div class="exp-hd">
-                <span class="exp-co">新芽網路股份有限公司</span>
-                <span class="exp-period">2024.03 — 2025.02（12 個月）</span>
+                <div class="exp-main">
+                  <span class="exp-co">新芽網路股份有限公司</span>
+                  <span class="exp-role">前端開發實習生</span>
+                </div>
+                <span class="exp-period">2024.03 – 2025.02</span>
               </div>
-              <div class="exp-role">前端開發實習生</div>
 
               <ul class="bl">
                 <li>
-                  <strong>SurveyCake XM：</strong>從零實作 Sentiment Analysis
-                  模組，包含趨勢圖、Topic Ranking Table、Sentiment Expressions
-                  Table 與 Topic Detail；串接 Sentiment Themes API
-                  完成資料流，並修復 filter query routing
-                  造成的跨頁面篩選狀態不一致。
+                  <strong>SurveyCake XM：</strong>前期協助 UI、文案、圖表與 bug
+                  修復；後期獨立開發 Sentiment Analysis
+                  功能，完成多種自定義圖表與 Topic Detail 頁面，使用 Nivo
+                  製作圖表並串接 API 完成資料流。
                 </li>
                 <li>
                   <strong>SurveyCake 後台：</strong
-                  >維護使用者、企業帳號與群組管理模組；修復企業用戶匯出功能，串接
-                  File API；於 73 個檔案導入 sanitize-url，修補 XSS 風險並通過
-                  DAST 高風險項目檢查。
+                  >維護使用者、企業帳號、群組及問卷總覽模組；修復匯出、File API
+                  串接、回應與狀態更新問題，並於 73 個檔案導入
+                  sanitize-url，修補 XSS 風險。
                 </li>
                 <li>
-                  <strong>SurveyCake 官網：</strong>維護文案、樣式與 RWD，埋設
-                  GA / GTM 事件追蹤；獨立開發問卷範本頁面，處理路由、API
-                  串接、搜尋與 Modal 互動，並建立 XM 產品一頁式頁面。
+                  <strong>SurveyCake 官網：</strong
+                  >維護網站並開發問卷範本頁面，涵蓋 RWD、API 串接、搜尋、Modal
+                  與 WordPress 頁面調整。
                 </li>
                 <li>
-                  <strong>多專案協作：</strong>參與 Git branching、code review
-                  與 release；與
-                  PM、設計師、行銷團隊討論需求，提供技術可行性評估並負責執行。
+                  參與 Scrum 與 Git feature branch
+                  workflow，進行功能開發、進版與 code review。
                 </li>
               </ul>
             </div>
 
             <div class="exp">
               <div class="exp-hd">
-                <span class="exp-co">猴思特股份有限公司</span>
-                <span class="exp-period">2022.11 — 2023.05（7 個月）</span>
+                <div class="exp-main">
+                  <span class="exp-co">猴思特股份有限公司</span>
+                  <span class="exp-role">前端工程實習生</span>
+                </div>
+                <span class="exp-period">2022.11 – 2023.05</span>
               </div>
-              <div class="exp-role">前端工程實習生</div>
               <ul class="bl">
                 <li>
-                  以 Apps Script 自動化內部 Google
-                  試算表流程，減少人工重複操作。
+                  使用 Apps Script 自動化 Google Sheets
+                  工作流程，減少重複性人工操作。
                 </li>
-                <li>
-                  建立一頁式招募網站，並制定 SOP 文件確保跨人員作業流程一致。
-                </li>
+                <li>使用 Bootstrap 5 開發一頁式招募網站。</li>
               </ul>
             </div>
           </section>
@@ -774,11 +786,11 @@
                 >
               </div>
               <div class="ptags">
-                <span class="ptag">React 19</span
+                <span class="ptag">React</span
                 ><span class="ptag">TypeScript</span
                 ><span class="ptag">Redux Toolkit</span
                 ><span class="ptag">RTK Query</span
-                ><span class="ptag">Express 5</span
+                ><span class="ptag">Express</span
                 ><span class="ptag">MongoDB</span
                 ><span class="ptag">ECPay</span>
               </div>
@@ -802,27 +814,25 @@
             <div class="proj">
               <div class="proj-hd">
                 <a class="proj-name" href="https://picquads.vercel.app"
-                  >PicQuads — 線上拍貼機</a
+                  >PicQuads – 線上拍貼機</a
                 >
                 <a class="proj-link" href="https://github.com/kir4che/picquads"
                   >GitHub 原始碼 ↗</a
                 >
               </div>
               <div class="ptags">
-                <span class="ptag">React 19</span
+                <span class="ptag">React</span
                 ><span class="ptag">TypeScript</span
-                ><span class="ptag">Express 4</span
+                ><span class="ptag">Express</span
                 ><span class="ptag">Canvas API</span
                 ><span class="ptag">Supabase Storage</span>
               </div>
-              <ul class="bl">
-                <li>
-                  以 react-moveable 實作照片、貼紙與文字圖層的拖曳、縮放、旋轉及
-                  邊界限制，並使用 Canvas 合成高解析度 JPEG；以
-                  <code>useReducer</code> 管理互動狀態，透過 Supabase Storage 與
-                  QR code 分享作品。
-                </li>
-              </ul>
+              <p class="proj-desc">
+                以 react-moveable 實作照片、貼紙與文字圖層的拖曳、縮放、旋轉及
+                邊界限制，並使用 Canvas 合成高解析度 JPEG；以
+                <code>useReducer</code> 管理互動狀態，透過 Supabase Storage 與
+                QR code 分享作品。
+              </p>
             </div>
 
             <div class="proj">
@@ -837,19 +847,16 @@
                 >
               </div>
               <div class="ptags">
-                <span class="ptag">Astro 7</span
-                ><span class="ptag">React 19</span
+                <span class="ptag">Astro</span><span class="ptag">React</span
                 ><span class="ptag">TypeScript</span
                 ><span class="ptag">MDX</span
                 ><span class="ptag">Keystatic</span>
               </div>
-              <ul class="bl">
-                <li>
-                  以 Astro、MDX 與 Keystatic 建立多語系技術部落格，實作手動
-                  routing、 CJK 搜尋、cookie 密碼保護、Redis 限流與動態 OG
-                  圖片生成。
-                </li>
-              </ul>
+              <p class="proj-desc">
+                以 Astro、MDX 與 Keystatic 建立多語系技術部落格，實作手動
+                routing、CJK 搜尋、cookie 密碼保護、Redis 限流與動態 OG
+                圖片生成。
+              </p>
             </div>
 
             <div class="proj">
@@ -867,13 +874,11 @@
                 ><span class="ptag">Tailwind CSS</span
                 ><span class="ptag">NextAuth.js</span>
               </div>
-              <ul class="bl">
-                <li>
-                  主要負責 UI/UX 與前端開發，以 ECharts 實作 K 線、MA /
-                  EMA、布林 通道及 6 種技術指標，並整合 NextAuth.js OAuth 登入與
-                  OpenAI Assistants API 股票問答。
-                </li>
-              </ul>
+              <p class="proj-desc">
+                主要負責 UI/UX 與前端開發，以 ECharts 實作 K 線、MA /
+                EMA、布林通道及 6 種技術指標，並整合 NextAuth.js OAuth 登入與
+                OpenAI Assistants API 股票問答。
+              </p>
             </div>
           </section>
         </main>
