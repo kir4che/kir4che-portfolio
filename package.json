@@ -18,11 +18,7 @@
     "three": "^0.184.0",
     "webgl-fluid": "^0.4.0"
   },
-  "pnpm": {
-    "patchedDependencies": {
-      "webgl-fluid@0.4.0": "patches/webgl-fluid@0.4.0.patch"
-    }
-  },
+
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/matter-js": "^0.20.2",

@@ -52,7 +52,7 @@ export default function AboutSection() {
           className="size-full object-cover object-center"
         />
       </div>
-      <div className="flex-1 max-w-170 px-8 max-md:py-10 md:pl-[4vw] md:pr-[6vw]">
+      <div className="flex-1 max-w-170 px-8 max-md:py-10 md:pl-[4vw] md:pr-[6vw] relative z-10">
         <FadeUp
           as="h2"
           delay={0.08}
@@ -83,6 +83,15 @@ export default function AboutSection() {
               #{tag}
             </span>
           ))}
+        </FadeUp>
+        <FadeUp delay={0.34} className="text-ink-muted">
+          <a
+            href="mailto:mollydcxxiii@gmail.com"
+            className="email-link text-inherit no-underline"
+            suppressHydrationWarning
+          >
+            mollydcxxiii@gmail.com
+          </a>
         </FadeUp>
       </div>
       <FloatDeco

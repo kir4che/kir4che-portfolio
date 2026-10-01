@@ -14,16 +14,16 @@ export default function WorksSection() {
   return (
     <section
       aria-label="Works"
-      className="relative flex min-h-dvh w-screen shrink-0 flex-col overflow-hidden bg-[color-mix(in_oklch,var(--color-paper)_65%,transparent)] md:h-dvh px-8 md:px-[4vw] md:pt-16"
+      className="relative flex min-h-dvh w-screen shrink-0 flex-col overflow-hidden bg-[color-mix(in_oklch,var(--color-paper)_65%,transparent)] xl:h-dvh px-8 md:px-[4vw] md:pt-16"
     >
       <FadeUp
         as="h2"
         delay={0.08}
-        className="font-display text-lg font-bold tracking-tight"
+        className="font-display text-lg font-bold tracking-tight max-md:mt-4"
       >
         {tx(t.works.heading, lang)}
       </FadeUp>
-      <div className="flex-1 flex flex-col lg:flex-row pt-6 md:pt-4 pb-12 gap-8 lg:gap-[4vw]">
+      <div className="flex-1 flex max-xl:flex-col justify-between pt-6 md:pt-4 pb-12 gap-8 lg:gap-[3vw]">
         <div className="flex-1 flex items-center justify-center">
           <ul
             className="
@@ -33,11 +33,10 @@ export default function WorksSection() {
             "
           >
             {t.works.items.map((item, i) => (
-              <li key={i}>
+              <li key={item.title.en}>
                 <WorkCard
                   title={tx(item.title, lang)}
                   tags={item.tags}
-                  year={item.year}
                   image={item.image}
                   desc={tx(item.desc, lang)}
                   highlight={item.highlight[lang]}
@@ -49,18 +48,19 @@ export default function WorksSection() {
           </ul>
         </div>
         {t.otherProjects.items.length > 0 && (
-          <div className="md:w-[clamp(225px,25vw,280px)] md:flex md:flex-col max-md:hidden">
+          <div className="w-full flex flex-col xl:w-[clamp(225px,25vw,280px)]">
             <p className="text-sm font-medium tracking-widest text-accent mb-2">
               {t.otherProjects.label[lang]}
             </p>
-            <ul className="flex flex-col gap-4">
+            <ul className="flex flex-row gap-4 overflow-x-auto pb-2 xl:flex-col xl:overflow-visible xl:pb-0">
               {t.otherProjects.items.map((item, i) => (
-                <li key={i}>
+                <li
+                  key={item.title.en}
+                  className="w-[min(58vw,240px)] shrink-0 xl:w-auto xl:min-w-0"
+                >
                   <WorkCard
                     title={tx(item.title, lang)}
                     tags={item.tags}
-                    year={item.year}
-                    image={item.image}
                     desc={item.desc ? tx(item.desc, lang) : undefined}
                     highlight={item.highlight?.[lang]}
                     links={item.links}

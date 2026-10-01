@@ -124,8 +124,8 @@ export default function HorizontalScroll({
   });
 
   return (
-    <ScrollXContext.Provider value={scrollXMV}>
-      <ViewportContext.Provider value={viewportRef}>
+    <ScrollXContext value={scrollXMV}>
+      <ViewportContext value={viewportRef}>
         {header}
         {isMobile ? (
           <div className="flex flex-col">{children}</div>
@@ -141,7 +141,7 @@ export default function HorizontalScroll({
             </div>
           </div>
         )}
-      </ViewportContext.Provider>
-    </ScrollXContext.Provider>
+      </ViewportContext>
+    </ScrollXContext>
   );
 }

@@ -14,9 +14,9 @@ export default function Home() {
     <HorizontalScroll header={<Header />}>
       <HeroSection />
       <AboutSection />
-      <SkillsSection />
-      <WorksSection />
       <ExperienceSection />
+      <WorksSection />
+      <SkillsSection />
       <ContactSection />
     </HorizontalScroll>
   );

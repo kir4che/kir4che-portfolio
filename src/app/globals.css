@@ -1,26 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink:        oklch(0.28 0.02 30);
-  --color-ink-muted:  oklch(0.50 0.015 25);
-  --color-ink-faint:  oklch(0.60 0.015 20);
-  --color-paper:      oklch(0.97 0.015 85);
-  --color-paper-mid:  oklch(0.93 0.02 75);
+  --color-ink: oklch(0.28 0.02 30);
+  --color-ink-muted: oklch(0.5 0.015 25);
+  --color-ink-faint: oklch(0.6 0.015 20);
+  --color-paper: oklch(0.97 0.015 85);
+  --color-paper-mid: oklch(0.93 0.02 75);
   --color-paper-dark: oklch(0.88 0.028 60);
-  --color-pink:       oklch(0.82 0.06 5);
-  --color-pink-deep:  oklch(0.68 0.09 10);
-  --color-accent:     oklch(0.62 0.10 15);
+  --color-pink: oklch(0.82 0.06 5);
+  --color-pink-deep: oklch(0.68 0.09 10);
+  --color-accent: oklch(0.62 0.1 15);
   --color-accent-green: oklch(0.65 0.08 155);
-  --color-accent-lt:  oklch(0.90 0.04 10);
-  --color-line:       oklch(0.86 0.018 50);
+  --color-accent-lt: oklch(0.9 0.04 10);
+  --color-line: oklch(0.86 0.018 50);
 
   --font-display: "Shippori Mincho", Georgia, serif;
-  --font-body:    "Figtree", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, sans-serif;
 
   --text-hero: clamp(3.5rem, 16vw, 8rem);
-  --text-xl:   clamp(2.4rem, 4vw, 3rem);
-  --text-lg:   clamp(1.5rem, 3vw, 2.25rem);
-  --text-md:   clamp(1.125rem, 2vw, 1.5rem);
+  --text-xl: clamp(2.4rem, 4vw, 3rem);
+  --text-lg: clamp(1.5rem, 3vw, 2.25rem);
+  --text-md: clamp(1.125rem, 2vw, 1.25rem);
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -53,7 +53,7 @@
   button {
     cursor: pointer;
 
-      &:disabled {
+    &:disabled {
       cursor: default;
     }
   }
@@ -63,15 +63,15 @@
     color: var(--color-ink);
   }
 
-  ::-webkit-scrollbar { 
-    width: 4px; 
+  ::-webkit-scrollbar {
+    width: 4px;
   }
-  ::-webkit-scrollbar-track { 
-    background: transparent; 
+  ::-webkit-scrollbar-track {
+    background: transparent;
   }
-  ::-webkit-scrollbar-thumb { 
-    background: var(--color-line); 
-    border-radius: 2px; 
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-line);
+    border-radius: 2px;
   }
 
   :focus-visible {
@@ -82,16 +82,30 @@
 
 @layer utilities {
   @keyframes beaver-blink-a {
-    0%, 15.9%  { opacity: 1; }
-    16%, 100%  { opacity: 0; }
+    0%,
+    15.9% {
+      opacity: 1;
+    }
+    16%,
+    100% {
+      opacity: 0;
+    }
   }
   @keyframes beaver-blink-b {
-    0%, 15.9%  { opacity: 0; }
-    16%, 100%  { opacity: 1; }
+    0%,
+    15.9% {
+      opacity: 0;
+    }
+    16%,
+    100% {
+      opacity: 1;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       animation-duration: 1ms !important;
       transition-duration: 1ms !important;
     }
@@ -101,7 +115,7 @@
     position: relative;
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: -3px;
       left: 0;
@@ -119,7 +133,8 @@
   }
 
   .email-link {
-    background: linear-gradient(var(--color-accent), var(--color-accent)) no-repeat center bottom;
+    background: linear-gradient(var(--color-accent), var(--color-accent))
+      no-repeat center bottom;
     background-size: 0% 1.5px;
     transition:
       background-size 500ms var(--ease-out-expo),

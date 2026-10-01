@@ -29,26 +29,30 @@ export default function RainbowGlow() {
     canvas.width = canvas.offsetWidth * dpr;
     canvas.height = canvas.offsetHeight * dpr;
 
-    // 透過 globalThis 把顏色陣列傳給 webgl-fluid 的 patch 版本
-    // webgl-fluid 內部的 Ye() 函式會讀取這兩個全域變數來決定每次 splat 的顏色
-    globalThis.__webglFluidColors = COLORS_SCHEME;
-    globalThis.__webglFluidColorIndex = 0;
+    let initialized = false;
+    const initFrame = requestAnimationFrame(() => {
+      // 透過 globalThis 把顏色陣列傳給 webgl-fluid 的 patch 版本
+      // webgl-fluid 內部的 Ye() 函式會讀取這兩個全域變數來決定每次 splat 的顏色
+      globalThis.__webglFluidColors = COLORS_SCHEME;
+      globalThis.__webglFluidColorIndex = 0;
 
-    WebGLFluid(canvas, {
-      IMMEDIATE: false,
-      TRIGGER: "hover",
-      TRANSPARENT: true,
-      COLORFUL: true,
-      COLOR_UPDATE_SPEED: 1.5,
-      DENSITY_DISSIPATION: 2,
-      VELOCITY_DISSIPATION: 0.5,
-      PRESSURE: 0.05,
-      CURL: 0,
-      SPLAT_RADIUS: 0.5,
-      SPLAT_FORCE: 3000,
-      SHADING: false,
-      BLOOM: false,
-      SUNRAYS: false,
+      WebGLFluid(canvas, {
+        IMMEDIATE: false,
+        TRIGGER: "hover",
+        TRANSPARENT: true,
+        COLORFUL: true,
+        COLOR_UPDATE_SPEED: 1.5,
+        DENSITY_DISSIPATION: 2,
+        VELOCITY_DISSIPATION: 0.5,
+        PRESSURE: 0.05,
+        CURL: 0,
+        SPLAT_RADIUS: 0.5,
+        SPLAT_FORCE: 3000,
+        SHADING: false,
+        BLOOM: false,
+        SUNRAYS: false,
+      });
+      initialized = true;
     });
 
     // 滑鼠移動過慢則不觸發 splat
@@ -75,11 +79,15 @@ export default function RainbowGlow() {
     // passive: true 讓滑鼠事件不會被 WebGLFluid 的 preventDefault 阻擋
     window.addEventListener("pointermove", onPointerMove, { passive: true });
     return () => {
+      cancelAnimationFrame(initFrame);
       window.removeEventListener("pointermove", onPointerMove);
 
       // 清除全域顏色狀態
       globalThis.__webglFluidColors = undefined;
       globalThis.__webglFluidColorIndex = undefined;
+
+      // Strict Mode 的模擬 cleanup 會重用同一個 canvas；尚未初始化時不要建立並釋放 context。
+      if (!initialized) return;
 
       // 主動釋放 WebGL context，避免瀏覽器的 context 數量上限（通常 16 個）被耗盡。
       // webgl-fluid 優先用 webgl2，所以 cleanup 也先從 webgl2 開始找。

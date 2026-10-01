@@ -60,9 +60,18 @@ export default function HeroSection() {
         <FadeUp
           as="p"
           delay={0}
-          className="relative z-1 text-sm tracking-widest text-ink-faint mb-6"
+          className="relative z-1 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm tracking-widest text-ink-faint mb-6"
         >
-          {tx(t.hero.role, lang)}
+          <span>{tx(t.hero.role, lang)}</span>
+          {t.hero.status && (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper/60 px-2.5 py-1 text-[11px] tracking-wide text-ink-muted">
+              <span className="relative flex size-1.5">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-75 motion-reduce:hidden" />
+                <span className="relative inline-flex size-1.5 rounded-full bg-accent" />
+              </span>
+              {tx(t.hero.status, lang)}
+            </span>
+          )}
         </FadeUp>
         <FadeUp delay={0.04} className="relative z-1 w-8 h-px bg-accent my-4" />
         <FadeUp
@@ -129,14 +138,6 @@ export default function HeroSection() {
         rotate={30}
         priority
         className="bottom-0 md:bottom-[4vh] right-[2vw] opacity-50"
-      />
-      <SpringDeco
-        src="/images/deco-miffy-onigiri.webp"
-        width={120}
-        height={130}
-        initial={{ y: 50, scale: 0.8, opacity: 0 }}
-        enter={{ y: 0, scale: 1, opacity: 0.85 }}
-        className="bottom-[8vh] left-[24vw] max-md:hidden"
       />
     </section>
   );

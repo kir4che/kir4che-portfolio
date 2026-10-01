@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import BackToTop from "@/components/BackToTop";
 import RainbowGlow from "@/components/RainbowGlow";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
@@ -36,12 +37,6 @@ export default function RootLayout({
   return (
     <html lang="zh" className="h-full" suppressHydrationWarning>
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              "try{if(performance.getEntriesByType('navigation')[0]?.type==='back_forward')location.reload();}catch(e){}",
-          }}
-        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -57,6 +52,7 @@ export default function RootLayout({
         <LanguageProvider>
           <RainbowGlow />
           {children}
+          <BackToTop />
         </LanguageProvider>
       </body>
     </html>

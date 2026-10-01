@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "export",
   images: {
-    formats: ["image/avif", "image/webp"],
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -15,14 +16,6 @@ const nextConfig: NextConfig = {
         pathname: "/img/**",
       },
     ],
-  },
-  async headers() {
-    return [
-      {
-        source: "/",
-        headers: [{ key: "Cache-Control", value: "no-store" }],
-      },
-    ];
   },
 };
 

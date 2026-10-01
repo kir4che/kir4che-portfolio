@@ -11,7 +11,6 @@ import {
   SiTypescript,
   SiReact,
   SiNextdotjs,
-  SiAstro,
   SiTailwindcss,
   SiSass,
   SiGreensock,
@@ -21,12 +20,18 @@ import {
   SiVitest,
   SiGit,
   SiFigma,
-  SiPython,
+  SiDocker,
+  SiSpringboot,
+  SiTestinglibrary,
+  SiMockserviceworker,
+  SiOpenai,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
+import { TbBrandAdobePhotoshop } from "react-icons/tb";
 import type { IconType } from "react-icons";
 
-const { techStackLabel, techStackHint, techGroups } = t.credentials;
+const { techStackLabel, techStackHint, learningLabel, techGroups } =
+  t.credentials;
 
 const TECH_ICONS: Record<string, { Icon: IconType; color: string }> = {
   html: { Icon: SiHtml5, color: "#E34F26" },
@@ -34,7 +39,6 @@ const TECH_ICONS: Record<string, { Icon: IconType; color: string }> = {
   typescript: { Icon: SiTypescript, color: "#3178C6" },
   react: { Icon: SiReact, color: "#61DAFB" },
   nextjs: { Icon: SiNextdotjs, color: "#000000" },
-  astro: { Icon: SiAstro, color: "#FF5D01" },
   tailwind: { Icon: SiTailwindcss, color: "#06B6D4" },
   sass: { Icon: SiSass, color: "#CC6699" },
   mui: { Icon: SiMui, color: "#007FFF" },
@@ -42,10 +46,15 @@ const TECH_ICONS: Record<string, { Icon: IconType; color: string }> = {
   nodejs: { Icon: SiNodedotjs, color: "#339933" },
   mysql: { Icon: SiMysql, color: "#4479A1" },
   java: { Icon: FaJava, color: "#ED8B00" },
-  python: { Icon: SiPython, color: "#3776AB" },
+  springboot: { Icon: SiSpringboot, color: "#6DB33F" },
   vitest: { Icon: SiVitest, color: "#6E9F18" },
+  testingLibrary: { Icon: SiTestinglibrary, color: "#E33332" },
+  msw: { Icon: SiMockserviceworker, color: "#FF6A33" },
   git: { Icon: SiGit, color: "#F05032" },
   figma: { Icon: SiFigma, color: "#F24E1E" },
+  photoshop: { Icon: TbBrandAdobePhotoshop, color: "#31A8FF" },
+  docker: { Icon: SiDocker, color: "#2496ED" },
+  aiWorkflow: { Icon: SiOpenai, color: "#000000" },
 };
 
 type TooltipPos = {
@@ -244,7 +253,7 @@ export default function TechStackSection() {
             </div>
           </FadeUp>
         ))}
-        <FadeUp delay={0.12 + techGroups.length * 0.06}>
+        <FadeUp delay={0.12 + (techGroups.length + 1) * 0.06}>
           <p className="text-[10px] tracking-wide text-ink-faint">
             ※ {tx(techStackHint, lang)}
           </p>

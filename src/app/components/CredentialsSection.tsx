@@ -51,7 +51,9 @@ const HighlightDesc = ({
             ) : (
               <>
                 {before}
-                <span className="text-accent-green font-medium">{highlight}</span>
+                <span className="text-accent-green font-medium">
+                  {highlight}
+                </span>
                 {after}
               </>
             )}
@@ -108,7 +110,8 @@ export default function CredentialsSection() {
                 alt={tx(item.name, lang)}
                 width={30}
                 height={30}
-                className="object-contain shrink-0"
+                className="shrink-0"
+                style={{ width: 30, height: 30 }}
               />
               <p className="xl:text-[1.05rem] font-semibold leading-snug">
                 {tx(item.name, lang)}
@@ -154,19 +157,41 @@ export default function CredentialsSection() {
           >
             <TimelineDot />
             <div className="flex items-center gap-2 mb-1.5">
-              <Image
-                src={item.logo}
-                alt={item.issuer}
-                width={25}
-                height={25}
-                className="object-contain shrink-0"
-              />
-              <p className="xl:text-[1.05rem] font-semibold leading-snug">
-                {tx(item.name, lang)}{" "}
-                <ExternalLink
-                  href={item.href}
-                  label={tx(certifications.linkLabel, lang)}
+              {"logo" in item && item.logo ? (
+                <Image
+                  src={item.logo}
+                  alt={item.issuer}
+                  width={25}
+                  height={25}
+                  className="shrink-0"
+                  style={{ width: 25, height: 25 }}
                 />
+              ) : (
+                <span
+                  aria-hidden="true"
+                  className="size-6 shrink-0 rounded-sm border border-line text-[10px] text-ink-faint flex items-center justify-center"
+                >
+                  {item.issuer.charAt(0)}
+                </span>
+              )}
+              <p className="xl:text-[1.05rem] font-semibold leading-snug">
+                {tx(item.name, lang)}
+                {"href" in item && item.href && (
+                  <>
+                    {" "}
+                    <ExternalLink
+                      href={item.href}
+                      label={
+                        "linkLabel" in item
+                          ? tx(
+                              item.linkLabel as typeof certifications.linkLabel,
+                              lang,
+                            )
+                          : tx(certifications.linkLabel, lang)
+                      }
+                    />
+                  </>
+                )}
               </p>
             </div>
             <div className="flex justify-between items-baseline">
@@ -184,6 +209,7 @@ export default function CredentialsSection() {
         width={68}
         height={80}
         className="absolute top-[-3vh] left-[36vw] max-md:hidden rotate-15 opacity-80"
+        style={{ width: 68, height: 80 }}
       />
     </div>
   );

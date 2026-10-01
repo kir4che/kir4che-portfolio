@@ -16,9 +16,9 @@ const SOCIAL_LINKS: { label: string; href: string; Icon: IconType }[] = [
 
 const SECTION_IDS = [
   "about",
-  "skills",
-  "works",
   "experience",
+  "works",
+  "skills",
   "contact",
 ] as const;
 type SectionId = (typeof SECTION_IDS)[number];
