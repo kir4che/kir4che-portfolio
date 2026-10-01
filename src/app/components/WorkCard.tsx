@@ -156,7 +156,7 @@ export default function WorkCard({
 
   const card = (
     <motion.div
-      className={`group relative overflow-hidden rounded-md bg-paper shadow-[0_2px_12px_oklch(0.28_0.02_30/0.08)] flex flex-col h-full${variant === "sidebar" ? " transition-shadow duration-200 hover:shadow-[0_2px_16px_oklch(0.28_0.02_30/0.12)]" : ""}`}
+      className={`group relative overflow-hidden rounded-md ${variant === "sidebar" ? "bg-white" : "bg-paper"} shadow-[0_2px_12px_oklch(0.28_0.02_30/0.08)] flex flex-col h-full${variant === "sidebar" ? " transition-shadow duration-200 hover:shadow-[0_2px_16px_oklch(0.28_0.02_30/0.12)]" : ""}`}
       initial={{ opacity: 0, y: reduced ? 0 : 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, root: viewportRef, amount: 0.2 }}

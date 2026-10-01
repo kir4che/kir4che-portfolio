@@ -427,6 +427,15 @@
         font-weight: 700;
         color: var(--accent);
       }
+      a.proj-name {
+        text-decoration: underline;
+        text-decoration-color: var(--accent-mid);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 2.5px;
+      }
+      a.proj-name:hover {
+        text-decoration-thickness: 2px;
+      }
       .proj-link {
         font-size: 6.5pt;
         color: var(--ink-3);
@@ -755,10 +764,12 @@
 
             <div class="proj">
               <div class="proj-hd">
-                <span class="proj-name">MERN 全端電商平台</span>
+                <a class="proj-name" href="https://sunshine-bakery.vercel.app"
+                  >MERN 全端電商平台</a
+                >
                 <a
                   class="proj-link"
-                  href="https://github.com/kir4che/mern-ecommerce-website"
+                  href="https://github.com/kir4che/mern-ecommerce-frontend"
                   >GitHub 原始碼 ↗</a
                 >
               </div>
@@ -790,7 +801,9 @@
 
             <div class="proj">
               <div class="proj-hd">
-                <span class="proj-name">PicQuads — 線上拍貼機</span>
+                <a class="proj-name" href="https://picquads.vercel.app"
+                  >PicQuads — 線上拍貼機</a
+                >
                 <a class="proj-link" href="https://github.com/kir4che/picquads"
                   >GitHub 原始碼 ↗</a
                 >
@@ -814,7 +827,9 @@
 
             <div class="proj">
               <div class="proj-hd">
-                <span class="proj-name">個人技術部落格</span>
+                <a class="proj-name" href="https://kir4che.com/tw"
+                  >個人部落格</a
+                >
                 <a
                   class="proj-link"
                   href="https://github.com/kir4che/kir4che-blog"
@@ -830,7 +845,7 @@
               </div>
               <ul class="bl">
                 <li>
-                  以 Astro、MDX 與 Keystatic 建立雙語技術部落格，實作手動
+                  以 Astro、MDX 與 Keystatic 建立多語系技術部落格，實作手動
                   routing、 CJK 搜尋、cookie 密碼保護、Redis 限流與動態 OG
                   圖片生成。
                 </li>

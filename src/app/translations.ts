@@ -76,8 +76,8 @@ export const t = {
           ],
         },
         links: {
-          github: "https://github.com/kir4che/mern-ecommerce-website",
-          live: "https://mern-ecommerce-website-puce.vercel.app",
+          github: "https://github.com/kir4che/mern-ecommerce-frontend",
+          live: "https://sunshine-bakery.vercel.app",
         },
       },
       {
@@ -112,12 +112,12 @@ export const t = {
         tags: "Astro 7 · React 19 · TypeScript · Tailwind CSS v4 · MDX · Keystatic",
         image: "/images/works/kir4cheBlog.webp",
         desc: {
-          zh: "支援繁中 / 英雙語的個人技術部落格，使用 Keystatic CMS 管理 MDX。",
+          zh: "支援多語系的個人部落格，使用 Keystatic CMS 管理 MDX。",
           en: "Bilingual personal tech blog using Keystatic CMS to manage MDX.",
         },
         highlight: {
           zh: [
-            "以 routing: 'manual' 統一實作路徑前綴、雙語內容、UI 翻譯與 hreflang sitemap。",
+            "以 routing: 'manual' 統一實作路徑前綴、多語系內容、UI 翻譯與 hreflang sitemap。",
             "文章密碼保護以 cookie 驗證 + Upstash Redis 限流 + 前端鎖定三層防護，防止暴力猜解。",
             "Server 端動態生成 OG 圖並設 Cache-Control: immutable，避免重複渲染。",
           ],
