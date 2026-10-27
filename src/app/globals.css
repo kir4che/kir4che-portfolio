@@ -149,3 +149,23 @@
     }
   }
 }
+
+@keyframes float-deco {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(calc(var(--float-rot, 0deg) * -1));
+  }
+  100% {
+    transform: translate3d(0, var(--float-y, -12px), 0) rotate(var(--float-rot, 0deg));
+  }
+}
+
+.float-deco-anim {
+  animation: float-deco var(--float-duration, 10s) ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-deco-anim {
+    animation: none !important;
+  }
+}

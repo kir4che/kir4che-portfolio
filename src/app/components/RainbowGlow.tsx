@@ -19,18 +19,21 @@ export default function RainbowGlow() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    // 若使用者開啟「減少動態效果」則不啟動 WebGLFluid
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // 若在行動裝置、觸控螢幕（無滑鼠 hover）或開啟減少動畫
+    if (
+      window.matchMedia(
+        "(hover: none), (pointer: coarse), (max-width: 767px), (prefers-reduced-motion: reduce)",
+      ).matches
+    )
+      return;
 
-    // 限制 DPR 上限，避免 4K 螢幕上 canvas 解析度過高拖慢效能。
+    // 限制 DPR 上限，避免高解析螢幕拖慢效能。
     const dpr = Math.min(window.devicePixelRatio, 1.5);
     canvas.width = canvas.offsetWidth * dpr;
     canvas.height = canvas.offsetHeight * dpr;
 
     let initialized = false;
     let isCancelled = false;
-    let idleCallbackId: number | null = null;
-    let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
     const initFluid = async () => {
       if (initialized || isCancelled) return;
@@ -39,8 +42,6 @@ export default function RainbowGlow() {
         const { default: WebGLFluid } = await import("webgl-fluid");
         if (isCancelled || !canvasRef.current) return;
 
-        // 透過 globalThis 把顏色陣列傳給 webgl-fluid 的 patch 版本
-        // webgl-fluid 內部的 Ye() 函式會讀取這兩個全域變數來決定每次 splat 的顏色
         globalThis.__webglFluidColors = COLORS_SCHEME;
         globalThis.__webglFluidColorIndex = 0;
 
@@ -66,24 +67,19 @@ export default function RainbowGlow() {
       }
     };
 
-    // 等待主執行緒空閒再載入 WebGLFluid，避免阻塞首屏渲染與水合
-    if ("requestIdleCallback" in window) {
-      idleCallbackId = window.requestIdleCallback(() => {
-        void initFluid();
-      }, { timeout: 2500 });
-    } else {
-      timeoutId = setTimeout(() => {
-        void initFluid();
-      }, 1200);
-    }
-
-    // 滑鼠移動過慢則不觸發 splat
+    // 2. 嚴禁使用定時器或 requestIdleCallback 自動觸發！
+    // 只有在使用者真正移動滑鼠時才載入與啟動流體特效
     let prevX = 0,
       prevY = 0,
       prevTime = 0;
+
     const onPointerMove = (e: PointerEvent) => {
+      // 確保是真實滑鼠指針
+      if (e.pointerType !== "mouse") return;
+
       if (!initialized) {
         void initFluid();
+        return;
       }
 
       const now = performance.now();
@@ -102,27 +98,17 @@ export default function RainbowGlow() {
       );
     };
 
-    // passive: true 讓滑鼠事件不會被 WebGLFluid 的 preventDefault 阻擋
     window.addEventListener("pointermove", onPointerMove, { passive: true });
+
     return () => {
       isCancelled = true;
-      if (idleCallbackId !== null && "cancelIdleCallback" in window) {
-        window.cancelIdleCallback(idleCallbackId);
-      }
-      if (timeoutId !== null) {
-        clearTimeout(timeoutId);
-      }
       window.removeEventListener("pointermove", onPointerMove);
 
-      // 清除全域顏色狀態
       globalThis.__webglFluidColors = undefined;
       globalThis.__webglFluidColorIndex = undefined;
 
-      // Strict Mode 的模擬 cleanup 會重用同一個 canvas；尚未初始化時不要建立並釋放 context。
       if (!initialized) return;
 
-      // 主動釋放 WebGL context，避免瀏覽器的 context 數量上限（通常 16 個）被耗盡。
-      // webgl-fluid 優先用 webgl2，所以 cleanup 也先從 webgl2 開始找。
       const gl =
         canvas.getContext("webgl2") ??
         canvas.getContext("webgl") ??
@@ -135,7 +121,7 @@ export default function RainbowGlow() {
 
   return (
     <div
-      className="fixed -inset-25 z-0 pointer-events-none overflow-hidden"
+      className="fixed -inset-25 z-0 pointer-events-none overflow-hidden max-md:hidden"
       aria-hidden
     >
       <canvas

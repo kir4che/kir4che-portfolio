@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import { motion, useReducedMotion } from "motion/react";
 
 interface FloatDecoProps {
   src: string;
@@ -14,7 +11,7 @@ interface FloatDecoProps {
   priority?: boolean;
 }
 
-// 以 Framer Motion infinite mirror loop 實現持續漂浮效果的背景裝飾元素
+// 以純 CSS GPU 合成層動畫實現持續漂浮效果，完全不佔用 JavaScript 主執行緒 (TBT: 0ms)
 export default function FloatDeco({
   src,
   width,
@@ -25,26 +22,17 @@ export default function FloatDeco({
   className,
   priority,
 }: FloatDecoProps) {
-  const reduced = useReducedMotion();
-
   return (
-    <motion.div
+    <div
       aria-hidden
-      className={`absolute pointer-events-none ${className ?? ""}`}
-      animate={
-        reduced
-          ? {}
-          : {
-              y: [0, -yRange, 0],
-              rotate: rotate ? [-rotate, rotate, -rotate] : 0,
-            }
+      className={`absolute pointer-events-none float-deco-anim ${className ?? ""}`}
+      style={
+        {
+          "--float-duration": `${duration}s`,
+          "--float-y": `-${yRange}px`,
+          "--float-rot": `${rotate}deg`,
+        } as React.CSSProperties
       }
-      transition={{
-        duration,
-        repeat: Infinity,
-        repeatType: "mirror",
-        ease: "easeInOut",
-      }}
     >
       <Image
         src={src}
@@ -56,6 +44,6 @@ export default function FloatDeco({
         className="block select-none"
         style={{ width: width, height: height }}
       />
-    </motion.div>
+    </div>
   );
 }

@@ -53,7 +53,10 @@ export default function HorizontalScroll({
   // 記錄總共可以水平移動多少 px
   const scrollRangeRef = useRef(0);
 
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window !== "undefined") return window.innerWidth < 768;
+    return false;
+  });
 
   // 監聽 viewport 是否進入 mobile 寬度，是則改回一般直向排列。
   useEffect(() => {
@@ -110,13 +113,21 @@ export default function HorizontalScroll({
 
     // 把 window.scrollY 映射成水平位移：往下滾多少，stage 就往左移多少。
     const target = clamp(window.scrollY, 0, scrollRangeRef.current);
+    const diff = target - currentRef.current;
+
+    // 若位移微乎其微且已在目標位置，不重複執行 DOM transform 與 MotionValue 更新，節省主線程
+    if (Math.abs(diff) < 0.05) {
+      if (currentRef.current !== target) {
+        currentRef.current = target;
+        stage.style.transform = `translate3d(${-target}px, 0, 0)`;
+        scrollXMV.set(target);
+      }
+      return;
+    }
 
     // 每幀走「剩餘距離的 12%」，越靠近 target 越慢，製造平滑的動畫感。
     const factor = reduced ? 1 : 0.12;
-    currentRef.current += (target - currentRef.current) * factor;
-    // 當 target、current 非常接近時，直接把 current 設成 target。
-    if (Math.abs(target - currentRef.current) < 0.1)
-      currentRef.current = target;
+    currentRef.current += diff * factor;
 
     // 將計算後的水平位移套用到 stage 的 transform
     stage.style.transform = `translate3d(${-currentRef.current}px, 0, 0)`;

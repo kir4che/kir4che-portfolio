@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useInView, useReducedMotion } from "motion/react";
-import { useRef } from "react";
+import { motion, useReducedMotion } from "motion/react";
 import FadeUp from "@/components/FadeUp";
 import FloatDeco from "@/components/deco/FloatDeco";
 import ParallaxDeco from "@/components/deco/ParallaxDeco";
@@ -11,25 +10,23 @@ import { useLang } from "@/contexts/LanguageContext";
 import { t, tx } from "../translations";
 
 const HeroNameWithRollingO = () => {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-8% 0px" });
   const reduced = useReducedMotion();
 
   return (
-    <span ref={ref} className="inline-flex items-baseline">
+    <span className="inline-flex items-baseline">
       {"M"}
       <motion.span
         className="inline-block"
         initial={
-          reduced ? { opacity: 0 } : { x: -400, rotate: -720, opacity: 0 }
+          reduced ? { opacity: 1 } : { x: -400, rotate: -720, opacity: 0 }
         }
-        animate={inView || reduced ? { x: 0, rotate: 0, opacity: 1 } : {}}
+        animate={{ x: 0, rotate: 0, opacity: 1 }}
         transition={{
           type: "spring",
           stiffness: 45,
           damping: 14,
           mass: 1.2,
-          delay: 0.5,
+          delay: 0.3,
         }}
       >
         o
@@ -60,6 +57,7 @@ export default function HeroSection() {
         <FadeUp
           as="p"
           delay={0}
+          immediate
           className="relative z-1 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm tracking-widest text-ink-faint mb-6"
         >
           <span>{tx(t.hero.role, lang)}</span>
@@ -73,10 +71,11 @@ export default function HeroSection() {
             </span>
           )}
         </FadeUp>
-        <FadeUp delay={0.04} className="relative z-1 w-8 h-px bg-accent my-4" />
+        <FadeUp delay={0.04} immediate className="relative z-1 w-8 h-px bg-accent my-4" />
         <FadeUp
           as="h1"
           delay={0.08}
+          immediate
           className="relative z-1 font-display text-hero font-bold leading-none tracking-tight drop-shadow-[0_2px_24px_oklch(0.28_0.02_30/0.08)]"
         >
           <HeroNameWithRollingO />
@@ -86,12 +85,14 @@ export default function HeroSection() {
         <FadeUp
           as="p"
           delay={0.18}
+          immediate
           className="relative z-1 tracking-wide text-ink-muted mt-8 max-w-[34ch] leading-[1.75] whitespace-pre-line"
         >
           {tx(t.hero.desc, lang)}
         </FadeUp>
         <FadeUp
           delay={0.28}
+          immediate
           className="relative z-1 mt-8 w-12 h-px bg-accent"
         />
       </div>

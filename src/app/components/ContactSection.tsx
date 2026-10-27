@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useInView } from "motion/react";
@@ -17,11 +17,22 @@ const RotatingCube = dynamic(() => import("@/components/RotatingCube"), {
 const CURRENT_YEAR = new Date().getFullYear();
 
 export default function ContactSection() {
+  const [hasScrolled, setHasScrolled] = useState(false);
   const cubeContainerRef = useRef<HTMLDivElement>(null);
   const isCubeNear = useInView(cubeContainerRef, {
     once: true,
     margin: "400px 0px 400px 0px",
   });
+
+  useEffect(() => {
+    const onScroll = () => {
+      setHasScrolled(true);
+    };
+    window.addEventListener("scroll", onScroll, { once: true, passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const shouldRenderCube = hasScrolled && isCubeNear;
 
   return (
     <section
@@ -105,7 +116,7 @@ export default function ContactSection() {
           ref={cubeContainerRef}
           className="size-[clamp(280px,90vw,420px)] md:size-[clamp(200px,36vw,420px)] xl:size-[clamp(200px,40vw,500px)] max-md:self-end"
         >
-          {isCubeNear ? <RotatingCube /> : <div className="size-full" />}
+          {shouldRenderCube ? <RotatingCube /> : <div className="size-full" />}
         </div>
       </div>
       <p className="relative z-1 self-end pr-8 pb-8 md:pr-[2vw] text-xs text-ink-faint tracking-widest">

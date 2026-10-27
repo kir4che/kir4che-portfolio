@@ -10,6 +10,7 @@ interface FadeUpProps extends HTMLAttributes<HTMLElement> {
   style?: React.CSSProperties;
   className?: string;
   as?: ElementType;
+  immediate?: boolean;
 }
 
 const TRANSITION = {
@@ -25,6 +26,7 @@ export default function FadeUp({
   style,
   className,
   as = "div",
+  immediate = false,
 }: FadeUpProps) {
   const reduced = useReducedMotion();
   const viewportRef = useViewportRef();
@@ -32,6 +34,20 @@ export default function FadeUp({
 
   // 若開啟了減少動畫，則位移距離為 0，只保留透明度變化。
   const yOffset = reduced ? 0 : 24;
+
+  if (immediate) {
+    return (
+      <Tag
+        className={className}
+        style={style}
+        initial={reduced ? { opacity: 1 } : { opacity: 0, y: yOffset }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ ...TRANSITION, delay }}
+      >
+        {children}
+      </Tag>
+    );
+  }
 
   return (
     <Tag
