@@ -136,7 +136,6 @@ export default function HeroSection() {
         duration={10}
         yRange={12}
         rotate={30}
-        priority
         className="bottom-0 md:bottom-[4vh] right-[2vw] opacity-50"
       />
     </section>

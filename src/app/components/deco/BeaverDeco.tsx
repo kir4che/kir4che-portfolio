@@ -29,12 +29,16 @@ export default function BeaverDeco({ className = "" }: { className?: string }) {
         alt=""
         aria-hidden
         draggable={false}
+        loading="lazy"
+        decoding="async"
         className={`absolute inset-0 size-full select-none pointer-events-none transition-opacity ${hovered ? "opacity-100" : "opacity-0"}`}
       />
       <img
         src="/images/deco-beaver-closed.webp"
         alt=""
         draggable={false}
+        loading="lazy"
+        decoding="async"
         className={`size-full select-none pointer-events-none ${hovered ? "opacity-0" : "opacity-100"}`}
       />
     </motion.div>

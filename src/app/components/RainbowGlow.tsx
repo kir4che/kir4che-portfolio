@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-// @ts-expect-error webgl-fluid has no type declarations
-import WebGLFluid from "webgl-fluid";
 
 const COLORS_SCHEME = [
   { r: 0.15, g: 0.05, b: 0.05 },
@@ -30,36 +28,64 @@ export default function RainbowGlow() {
     canvas.height = canvas.offsetHeight * dpr;
 
     let initialized = false;
-    const initFrame = requestAnimationFrame(() => {
-      // 透過 globalThis 把顏色陣列傳給 webgl-fluid 的 patch 版本
-      // webgl-fluid 內部的 Ye() 函式會讀取這兩個全域變數來決定每次 splat 的顏色
-      globalThis.__webglFluidColors = COLORS_SCHEME;
-      globalThis.__webglFluidColorIndex = 0;
+    let isCancelled = false;
+    let idleCallbackId: number | null = null;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
-      WebGLFluid(canvas, {
-        IMMEDIATE: false,
-        TRIGGER: "hover",
-        TRANSPARENT: true,
-        COLORFUL: true,
-        COLOR_UPDATE_SPEED: 1.5,
-        DENSITY_DISSIPATION: 2,
-        VELOCITY_DISSIPATION: 0.5,
-        PRESSURE: 0.05,
-        CURL: 0,
-        SPLAT_RADIUS: 0.5,
-        SPLAT_FORCE: 3000,
-        SHADING: false,
-        BLOOM: false,
-        SUNRAYS: false,
-      });
-      initialized = true;
-    });
+    const initFluid = async () => {
+      if (initialized || isCancelled) return;
+      try {
+        // @ts-expect-error webgl-fluid has no type declarations
+        const { default: WebGLFluid } = await import("webgl-fluid");
+        if (isCancelled || !canvasRef.current) return;
+
+        // 透過 globalThis 把顏色陣列傳給 webgl-fluid 的 patch 版本
+        // webgl-fluid 內部的 Ye() 函式會讀取這兩個全域變數來決定每次 splat 的顏色
+        globalThis.__webglFluidColors = COLORS_SCHEME;
+        globalThis.__webglFluidColorIndex = 0;
+
+        WebGLFluid(canvas, {
+          IMMEDIATE: false,
+          TRIGGER: "hover",
+          TRANSPARENT: true,
+          COLORFUL: true,
+          COLOR_UPDATE_SPEED: 1.5,
+          DENSITY_DISSIPATION: 2,
+          VELOCITY_DISSIPATION: 0.5,
+          PRESSURE: 0.05,
+          CURL: 0,
+          SPLAT_RADIUS: 0.5,
+          SPLAT_FORCE: 3000,
+          SHADING: false,
+          BLOOM: false,
+          SUNRAYS: false,
+        });
+        initialized = true;
+      } catch {
+        // 忽略動態載入被取消或失敗
+      }
+    };
+
+    // 等待主執行緒空閒再載入 WebGLFluid，避免阻塞首屏渲染與水合
+    if ("requestIdleCallback" in window) {
+      idleCallbackId = window.requestIdleCallback(() => {
+        void initFluid();
+      }, { timeout: 2500 });
+    } else {
+      timeoutId = setTimeout(() => {
+        void initFluid();
+      }, 1200);
+    }
 
     // 滑鼠移動過慢則不觸發 splat
     let prevX = 0,
       prevY = 0,
       prevTime = 0;
     const onPointerMove = (e: PointerEvent) => {
+      if (!initialized) {
+        void initFluid();
+      }
+
       const now = performance.now();
       const dt = now - prevTime;
       const speed =
@@ -79,7 +105,13 @@ export default function RainbowGlow() {
     // passive: true 讓滑鼠事件不會被 WebGLFluid 的 preventDefault 阻擋
     window.addEventListener("pointermove", onPointerMove, { passive: true });
     return () => {
-      cancelAnimationFrame(initFrame);
+      isCancelled = true;
+      if (idleCallbackId !== null && "cancelIdleCallback" in window) {
+        window.cancelIdleCallback(idleCallbackId);
+      }
+      if (timeoutId !== null) {
+        clearTimeout(timeoutId);
+      }
       window.removeEventListener("pointermove", onPointerMove);
 
       // 清除全域顏色狀態

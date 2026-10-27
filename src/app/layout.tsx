@@ -1,11 +1,26 @@
 import type { Metadata } from "next";
 import type { Viewport } from "next";
+import { Figtree, Shippori_Mincho } from "next/font/google";
 
 import BackToTop from "@/components/BackToTop";
 import RainbowGlow from "@/components/RainbowGlow";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
 import "./globals.css";
+
+const figtree = Figtree({
+  subsets: ["latin"],
+  variable: "--font-figtree",
+  display: "swap",
+});
+
+const shipporiMincho = Shippori_Mincho({
+  weight: ["400", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-shippori",
+  display: "swap",
+  preload: false,
+});
 
 const title = "Molly Su｜前端工程師";
 const description =
@@ -117,19 +132,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="zh-TW" className="h-full" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html
+      lang="zh-TW"
+      className={`h-full ${figtree.variable} ${shipporiMincho.variable}`}
+      suppressHydrationWarning
+    >
       <body className="h-full" suppressHydrationWarning>
         <script
           type="application/ld+json"

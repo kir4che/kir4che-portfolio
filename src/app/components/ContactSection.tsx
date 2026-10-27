@@ -1,13 +1,28 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+import { useInView } from "motion/react";
 import FadeUp from "@/components/FadeUp";
-import RotatingCube from "@/components/RotatingCube";
 import SpringDeco from "@/components/deco/SpringDeco";
+
+const RotatingCube = dynamic(() => import("@/components/RotatingCube"), {
+  ssr: false,
+  loading: () => (
+    <div className="size-full animate-pulse rounded-2xl bg-paper/20" />
+  ),
+});
 
 const CURRENT_YEAR = new Date().getFullYear();
 
 export default function ContactSection() {
+  const cubeContainerRef = useRef<HTMLDivElement>(null);
+  const isCubeNear = useInView(cubeContainerRef, {
+    once: true,
+    margin: "400px 0px 400px 0px",
+  });
+
   return (
     <section
       aria-label="Contact"
@@ -86,8 +101,11 @@ export default function ContactSection() {
             </a>
           </FadeUp>
         </div>
-        <div className="size-[clamp(280px,90vw,420px)] md:size-[clamp(200px,36vw,420px)] xl:size-[clamp(200px,40vw,500px)] max-md:self-end">
-          <RotatingCube />
+        <div
+          ref={cubeContainerRef}
+          className="size-[clamp(280px,90vw,420px)] md:size-[clamp(200px,36vw,420px)] xl:size-[clamp(200px,40vw,500px)] max-md:self-end"
+        >
+          {isCubeNear ? <RotatingCube /> : <div className="size-full" />}
         </div>
       </div>
       <p className="relative z-1 self-end pr-8 pb-8 md:pr-[2vw] text-xs text-ink-faint tracking-widest">

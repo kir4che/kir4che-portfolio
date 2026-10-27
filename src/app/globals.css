@@ -14,8 +14,8 @@
   --color-accent-lt: oklch(0.9 0.04 10);
   --color-line: oklch(0.86 0.018 50);
 
-  --font-display: "Shippori Mincho", Georgia, serif;
-  --font-body: "Figtree", system-ui, sans-serif;
+  --font-display: var(--font-shippori), "Shippori Mincho", Georgia, serif;
+  --font-body: var(--font-figtree), "Figtree", system-ui, sans-serif;
 
   --text-hero: clamp(3.5rem, 16vw, 8rem);
   --text-xl: clamp(2.4rem, 4vw, 3rem);
